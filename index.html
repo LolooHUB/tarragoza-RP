@@ -16,11 +16,11 @@
 
         body { 
             background-color: var(--azul-fondo); 
-            /* Grid corregido para que sea visible */
+            /* GRID REFORZADO - Ahora debería verse claramente */
             background-image: 
-                linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
+                linear-gradient(rgba(14, 165, 233, 0.1) 1.5px, transparent 1.5px),
+                linear-gradient(90deg, rgba(14, 165, 233, 0.1) 1.5px, transparent 1.5px);
+            background-size: 45px 45px;
             color: #f1f5f9; 
             font-family: 'Inter', sans-serif; 
             scroll-behavior: smooth; 
@@ -34,30 +34,27 @@
         .nav-link { cursor: pointer; transition: 0.3s; border-bottom: 2px solid transparent; padding-bottom: 4px; }
         .nav-link.active { color: var(--cian-neon); border-bottom-color: var(--cian-neon); }
         
-        .card-lista { background: var(--azul-card); border-radius: 1.5rem; padding: 2rem; border-top: 4px solid #3b82f6; height: 100%; display: flex; flex-direction: column; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3); }
+        .card-lista { background: var(--azul-card); border-radius: 1.5rem; padding: 2rem; border-top: 4px solid #3b82f6; height: 100%; display: flex; flex-direction: column; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); }
         .item-lista { display: flex; align-items: center; gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
         
         .icon-circle { width: 34px; height: 34px; background: rgba(14, 165, 233, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #0ea5e9; }
         
-        /* Tintado verde suave para logos legales */
         .verde-tint { filter: invert(58%) sepia(56%) saturate(465%) hue-rotate(113deg) brightness(93%) contrast(89%); }
 
-        /* Botón Discord Mejorado */
         .btn-main-discord {
             background: #5865F2;
-            box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
+            box-shadow: 0 0 25px rgba(88, 101, 242, 0.5);
             transition: all 0.3s ease;
         }
         .btn-main-discord:hover {
             background: #4752c4;
-            transform: translateY(-3px);
-            box-shadow: 0 0 30px rgba(88, 101, 242, 0.6);
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(88, 101, 242, 0.7);
         }
 
         .btn-discord-mini { 
-            margin-left: auto; background: #5865F2; padding: 4px 10px; border-radius: 6px; font-size: 10px; font-weight: 900; color: white; transition: 0.2s;
+            margin-left: auto; background: #5865F2; padding: 4px 10px; border-radius: 6px; font-size: 10px; font-weight: 900; color: white;
         }
-        .btn-discord-mini:hover { background: #4752c4; }
     </style>
 </head>
 <body>
@@ -93,22 +90,22 @@
                 <a href="https://discord.gg/gZbckMjZns" class="btn-main-discord px-12 py-5 rounded-2xl font-black text-white text-xl flex items-center gap-3">
                     <i class="fab fa-discord text-2xl"></i> UNIRSE AL SERVIDOR
                 </a>
-                <button onclick="showPage('facciones')" class="bg-white/10 hover:bg-white/20 border border-white/10 px-12 py-5 rounded-2xl font-black text-white transition">EXPLORAR MAPA</button>
+                <button onclick="showPage('facciones')" class="bg-white/10 hover:bg-white/20 border border-white/10 px-12 py-5 rounded-2xl font-black text-white transition">EXPLORAR FACCIONES</button>
             </div>
         </header>
     </div>
 
     <div id="page-safezones" class="page-content max-w-7xl mx-auto px-6 py-16">
-        <h2 class="text-4xl font-black uppercase italic mb-12 border-l-8 border-sky-500 pl-6">Zonas Seguras</h2>
+        <h2 class="text-4xl font-black uppercase italic mb-12 border-l-8 border-sky-500 pl-6 text-white">Zonas Seguras</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <img src="./safezones.png" class="rounded-3xl shadow-2xl border border-white/10">
             <div class="glass p-8 rounded-2xl">
-                <h3 class="text-xl font-bold mb-4 text-sky-400">PUNTOS PROTEGIDOS</h3>
+                <h3 class="text-xl font-bold mb-4 text-sky-400 uppercase">Puntos Protegidos</h3>
                 <ul class="space-y-4 text-slate-300 font-medium">
-                    <li>➤ Comisarías: G.C, Mossos, CNP y Urbana</li>
-                    <li>➤ Salud: Hospital Can Ruti y Base S.E.M</li>
-                    <li>➤ Emergencias: Parques de Bomberos</li>
-                    <li>➤ Logística: Gasolineras Repsol y Spawns</li>
+                    <li>➤ Comisarías (G.C, Mossos, CNP, Urbana)</li>
+                    <li>➤ Hospital Can Ruti y Base S.E.M</li>
+                    <li>➤ Parques de Bomberos</li>
+                    <li>➤ Gasolineras Repsol y Spawns</li>
                 </ul>
             </div>
         </div>
@@ -116,78 +113,31 @@
 
     <div id="page-facciones" class="page-content max-w-7xl mx-auto px-6 py-16">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
             <div class="card-lista">
                 <h4 class="text-xl font-black uppercase mb-6 text-sky-400">Servicios Públicos</h4>
                 <div class="space-y-1 flex-grow">
-                    <div class="item-lista">
-                        <div class="icon-circle"><i class="fas fa-shield-alt"></i></div>
-                        <span class="font-bold text-sm">Guardia Civil</span>
-                        <a href="https://discord.gg/AJgmCsRddz" class="btn-discord-mini">LINK</a>
-                    </div>
-                    <div class="item-lista">
-                        <div class="icon-circle"><i class="fas fa-building-shield"></i></div>
-                        <span class="font-bold text-sm">C.N.P.</span>
-                        <a href="https://discord.gg/ezfJvYSTBj" class="btn-discord-mini">LINK</a>
-                    </div>
-                    <div class="item-lista">
-                        <div class="icon-circle"><i class="fas fa-motorcycle"></i></div>
-                        <span class="font-bold text-sm">Mossos D´Squadra</span>
-                        <a href="https://discord.gg/MjdWpdbqf6" class="btn-discord-mini">LINK</a>
-                    </div>
-                    <div class="item-lista">
-                        <div class="icon-circle"><i class="fas fa-city"></i></div>
-                        <span class="font-bold text-sm">Guardia Urbana</span>
-                        <a href="https://discord.gg/Dre9cHJvfS" class="btn-discord-mini">LINK</a>
-                    </div>
-                    <div class="item-lista">
-                        <div class="icon-circle"><i class="fas fa-ambulance"></i></div>
-                        <span class="font-bold text-sm">S.E.M / Médicos</span>
-                        <a href="https://discord.gg/YZfUjrauBf" class="btn-discord-mini">LINK</a>
-                    </div>
-                    <div class="item-lista">
-                        <div class="icon-circle"><i class="fas fa-fire"></i></div>
-                        <span class="font-bold text-sm">Bomberos</span>
-                        <a href="https://discord.gg/GR4DccMsjx" class="btn-discord-mini">LINK</a>
-                    </div>
-                    <div class="item-lista">
-                        <div class="icon-circle" style="color:#f97316; background: rgba(249,115,22,0.1)">
-                            <i class="fas fa-hard-hat"></i> </div>
-                        <span class="font-bold text-sm">Conservación</span>
-                    </div>
+                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-shield-alt"></i></div><span class="font-bold text-sm">Guardia Civil</span><a href="https://discord.gg/AJgmCsRddz" class="btn-discord-mini">LINK</a></div>
+                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-building-shield"></i></div><span class="font-bold text-sm">C.N.P.</span><a href="https://discord.gg/ezfJvYSTBj" class="btn-discord-mini">LINK</a></div>
+                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-motorcycle"></i></div><span class="font-bold text-sm">Mossos D´Squadra</span><a href="https://discord.gg/MjdWpdbqf6" class="btn-discord-mini">LINK</a></div>
+                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-city"></i></div><span class="font-bold text-sm">Guardia Urbana</span><a href="https://discord.gg/Dre9cHJvfS" class="btn-discord-mini">LINK</a></div>
+                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-ambulance"></i></div><span class="font-bold text-sm">S.E.M / Médicos</span><a href="https://discord.gg/YZfUjrauBf" class="btn-discord-mini">LINK</a></div>
+                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-fire"></i></div><span class="font-bold text-sm">Bomberos</span><a href="https://discord.gg/GR4DccMsjx" class="btn-discord-mini">LINK</a></div>
+                    <div class="item-lista"><div class="icon-circle" style="color:#f97316; background: rgba(249,115,22,0.1)"><i class="fas fa-hard-hat"></i></div><span class="font-bold text-sm">Conservación</span></div>
                 </div>
             </div>
-
             <div class="card-lista" style="border-top-color: var(--verde-suave);">
                 <h4 class="text-xl font-black uppercase mb-6 text-green-500">Facciones Legales</h4>
                 <div class="space-y-1 flex-grow">
-                    <div class="item-lista">
-                        <div class="icon-circle" style="color:var(--verde-suave); background: rgba(16,185,129,0.1)"><i class="fab fa-amazon"></i></div>
-                        <span class="font-bold text-sm">Amazon Logistics</span>
-                    </div>
-                    <div class="item-lista">
-                        <div class="icon-circle" style="background: rgba(16,185,129,0.1)">
-                            <img src="./prosegur.png" class="verde-tint w-5 h-5 object-contain">
-                        </div>
-                        <span class="font-bold text-sm">Prosegur Seguridad</span>
-                    </div>
-                    <div class="item-lista">
-                        <div class="icon-circle" style="background: rgba(16,185,129,0.1)">
-                            <i class="fas fa-landmark" style="color: var(--verde-suave)"></i>
-                        </div>
-                        <span class="font-bold text-sm">BBVA Banca</span>
-                    </div>
+                    <div class="item-lista"><div class="icon-circle" style="color:var(--verde-suave); background: rgba(16,185,129,0.1)"><i class="fab fa-amazon"></i></div><span class="font-bold text-sm">Amazon Logistics</span></div>
+                    <div class="item-lista"><div class="icon-circle" style="background: rgba(16,185,129,0.1)"><img src="./prosegur.png" class="verde-tint w-5 h-5 object-contain"></div><span class="font-bold text-sm">Prosegur Seguridad</span></div>
+                    <div class="item-lista"><div class="icon-circle" style="background: rgba(16,185,129,0.1)"><i class="fas fa-landmark" style="color: var(--verde-suave)"></i></div><span class="font-bold text-sm">BBVA Banca</span></div>
                 </div>
                 <a href="https://discord.gg/fmN8kE7uBf" class="mt-8 block text-center bg-green-600 py-3 rounded-xl font-black text-xs text-white">POSTULARSE</a>
             </div>
-
             <div class="card-lista" style="border-top-color: #a855f7;">
                 <h4 class="text-xl font-black uppercase mb-6 text-purple-500">Facciones Ilegales</h4>
                 <div class="flex-grow">
-                    <div class="item-lista">
-                        <div class="icon-circle" style="color:#a855f7; background: rgba(168,85,247,0.1)"><i class="fas fa-ghost"></i></div>
-                        <span class="font-bold text-sm">Cielo Azul</span>
-                    </div>
+                    <div class="item-lista"><div class="icon-circle" style="color:#a855f7; background: rgba(168,85,247,0.1)"><i class="fas fa-ghost"></i></div><span class="font-bold text-sm">Cielo Azul</span></div>
                 </div>
                 <a href="https://discord.gg/fmN8kE7uBf" class="mt-auto block text-center bg-purple-600 py-4 rounded-xl font-black text-sm text-white">POSTULAR MAFIA</a>
             </div>
@@ -195,15 +145,15 @@
     </div>
 
     <div id="page-normativa" class="page-content max-w-7xl mx-auto px-6 py-16">
-        <h2 class="text-4xl font-black uppercase italic mb-12 text-center">Normativa General</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+        <h2 class="text-4xl font-black uppercase italic mb-12 text-center text-white">Normativa General</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="glass p-8 rounded-2xl border-l-4 border-sky-500">
                 <h3 class="text-sky-400 font-bold mb-4 uppercase">Conceptos de Rol</h3>
                 <p class="text-sm text-slate-400 leading-relaxed">MG, PG, DM, VDM, RK, CL, Valorar Vida, PK/CK.</p>
             </div>
             <div class="glass p-8 rounded-2xl border-l-4 border-green-500">
                 <h3 class="text-green-500 font-bold mb-4 uppercase">Reglas Laborales</h3>
-                <p class="text-sm text-slate-400 leading-relaxed">Respeto, Profesionalidad y uso obligatorio de canales de radio/servicios.</p>
+                <p class="text-sm text-slate-400 leading-relaxed">Respeto, Profesionalidad y uso obligatorio de canales oficiales.</p>
             </div>
         </div>
     </div>
