@@ -18,7 +18,8 @@
         .card-lista { background: var(--azul-card); border-radius: 1.5rem; padding: 2rem; border-top: 4px solid #3b82f6; height: 100%; display: flex; flex-direction: column; }
         .item-lista { display: flex; align-items: flex-start; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
         .icon-circle { width: 32px; height: 32px; background: rgba(14, 165, 233, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #0ea5e9; }
-        .logo-empresa { width: 32px; height: 32px; object-fit: contain; border-radius: 4px; }
+        /* Estilo para logo Prosegur Vectorizado */
+        .logo-prosegur { width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 0 2px rgba(234, 179, 8, 0.4)); }
     </style>
 </head>
 <body>
@@ -48,7 +49,7 @@
             <img src="./logosv.png" class="w-40 h-40 mb-8 drop-shadow-[0_0_35px_rgba(14,165,233,0.3)]">
             <h2 class="text-6xl md:text-8xl font-black italic uppercase text-white mb-4 tracking-tighter">TARRAGONA <span class="text-sky-500">RP</span></h2>
             <p class="text-slate-400 max-w-2xl text-xl leading-relaxed mb-10">
-                Bienvenidos a la experiencia definitiva de Roleplay en <span class="text-white font-bold">ERLC: Liberty County</span>. Un servidor serio, basado en España, con sistemas únicos y una comunidad activa.
+                Bienvenidos a la experiencia definitiva de Roleplay en <span class="text-white font-bold">ERLC: Liberty County</span>. Un servidor serio, basado en España.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="https://discord.gg/gZbckMjZns" class="bg-[#5865F2] hover:bg-[#4752c4] px-8 py-4 rounded-2xl font-black text-white transition shadow-lg flex items-center gap-3">
@@ -114,6 +115,10 @@
                         <div class="icon-circle"><i class="fas fa-fire-extinguisher"></i></div>
                         <div><p class="font-bold text-sm">Bomberos Municipales</p><a href="https://discord.gg/GR4DccMsjx" class="text-[10px] text-sky-400 font-bold uppercase">Discord Bomberos</a></div>
                     </div>
+                    <div class="item-lista">
+                        <div class="icon-circle" style="color:#f97316"><i class="fas fa-cone"></i></div>
+                        <div><p class="font-bold text-sm">Conservación</p><p class="text-[10px] text-slate-500 font-bold uppercase">En Progreso</p></div>
+                    </div>
                 </div>
             </div>
 
@@ -125,16 +130,12 @@
                         <div><p class="font-bold text-sm">Amazon Logistics</p></div>
                     </div>
                     <div class="item-lista">
-                        <img src="./prosegur.png" class="logo-empresa" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1022/1022330.png'">
+                        <img src="./prosegur.png" class="logo-prosegur" alt="Prosegur">
                         <div><p class="font-bold text-sm">Prosegur Seguridad</p></div>
                     </div>
                     <div class="item-lista">
                         <div class="icon-circle" style="color:#10b981"><i class="fas fa-landmark"></i></div>
                         <div><p class="font-bold text-sm">BBVA Banca</p></div>
-                    </div>
-                    <div class="item-lista">
-                        <div class="icon-circle" style="color:#f97316"><i class="fas fa-cone text-orange-500"></i></div>
-                        <div><p class="font-bold text-sm text-slate-500 italic">Conservación (En Progreso)</p></div>
                     </div>
                 </div>
                 <a href="https://discord.gg/fmN8kE7uBf" class="mt-8 block text-center bg-green-600/20 hover:bg-green-600 py-3 rounded-xl text-xs font-bold transition">POSTULARSE A EMPRESA</a>
@@ -160,9 +161,9 @@
         <h2 class="text-4xl font-black uppercase italic mb-12 border-b border-white/5 pb-4">Reglamento y Conceptos</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-sm leading-relaxed">
             <div class="space-y-6">
-                <h3 class="text-xl font-bold text-sky-500 uppercase italic">Glosario de Conceptos</h3>
+                <h3 class="text-xl font-bold text-sky-500 uppercase italic">Conceptos de Rol</h3>
                 <div class="grid grid-cols-1 gap-2">
-                    <div class="p-3 glass rounded-lg"><b>MG (MetaGaming)</b> / <b>PG (PowerGaming)</b> / <b>DM (DeathMatch)</b> / <b>VDM</b> / <b>RK</b> / <b>CL</b> / <b>VV</b> / <b>PK / CK</b> / <b>NRE</b></div>
+                    <div class="p-3 glass rounded-lg"><b>MG / PG / DM / VDM / RK / CL / VV / PK-CK / NRE</b></div>
                 </div>
             </div>
             <div class="space-y-6">
