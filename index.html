@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --azul-fondo: #020617; --azul-card: #0f172a; --cian-neon: #0ea5e9; }
-        body { background-color: var(--azul-fondo); color: #f1f5f9; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        body { background-color: var(--azul-fondo); color: #f1f5f9; font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
         .glass { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
         .page-content { display: none; animation: fadeIn 0.4s ease-out; }
         .page-active { display: block; }
@@ -16,170 +16,139 @@
         .nav-link { cursor: pointer; transition: 0.3s; border-bottom: 2px solid transparent; padding-bottom: 4px; }
         .nav-link.active { color: #0ea5e9; border-bottom-color: #0ea5e9; }
         .card-faccion { background: var(--azul-card); border-radius: 1.25rem; padding: 1.5rem; border-top: 4px solid #3b82f6; transition: 0.3s; height: 100%; display: flex; flex-direction: column; }
-        .card-faccion:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
-        .logo-box { width: 60px; height: 60px; background: #1e293b; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+        .card-faccion:hover { transform: translateY(-5px); border-top-color: var(--cian-neon); }
     </style>
 </head>
 <body>
 
     <nav class="sticky top-0 z-50 glass border-b border-white/5 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center gap-4">
             <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('inicio')">
                 <img src="./logosv.png" alt="Logo" class="w-10 h-10 object-contain">
-                <h1 class="text-lg font-black italic tracking-tighter uppercase">TARRAGONA <span class="text-sky-500">RP</span></h1>
+                <h1 class="text-lg font-black italic uppercase tracking-tighter">TARRAGONA <span class="text-sky-500">RP</span></h1>
             </div>
-            <div class="flex gap-4 md:gap-8 text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-400">
+            
+            <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
                 <span class="nav-link active" id="link-inicio" onclick="showPage('inicio')">Inicio</span>
-                <span class="nav-link" id="link-servicios" onclick="showPage('servicios')">Facciones</span>
-                <span class="nav-link" id="link-seguras" onclick="showPage('seguras')">Zonas Seguras</span>
-                <span class="nav-link" id="link-normativa" onclick="showPage('normativa')">Normativa</span>
+                <span class="nav-link" id="link-normativa" onclick="showPage('normativa')">Normativa y Conceptos</span>
             </div>
+
+            <a href="https://discord.gg/gZbckMjZns" class="bg-[#5865F2] hover:bg-[#4752c4] px-5 py-2 rounded-xl font-bold text-white transition text-xs flex items-center">
+                <i class="fab fa-discord mr-2"></i> DISCORD PRINCIPAL
+            </a>
         </div>
     </nav>
 
     <div id="page-inicio" class="page-content page-active">
-        <header class="min-h-[70vh] flex flex-col items-center justify-center text-center px-6">
-            <img src="./logosv.png" class="w-24 h-24 mb-6 drop-shadow-2xl">
-            <h2 class="text-5xl md:text-7xl font-black italic uppercase text-white mb-4">TARRAGONA <span class="text-sky-500">RP</span></h2>
-            <p class="text-lg text-slate-400 max-w-2xl mb-10">Servidor de ERLC basado en la España Realista. Experiencia de rol serio y profesional.</p>
-            <a href="https://discord.gg/gZbckMjZns" class="bg-[#5865F2] hover:bg-[#4752c4] px-10 py-4 rounded-2xl font-black text-white transition shadow-lg">
-                <i class="fab fa-discord mr-3 text-2xl"></i> UNIRSE AL DISCORD
-            </a>
-            <div class="mt-20 w-full max-w-5xl">
-                <h3 class="text-xl font-bold uppercase mb-6 italic">Mapa de SafeZones</h3>
-                <img src="./safezones.png" class="w-full rounded-3xl border border-white/10 shadow-2xl">
-            </div>
+        
+        <header class="min-h-[50vh] flex flex-col items-center justify-center text-center px-6">
+            <h2 class="text-5xl md:text-8xl font-black italic uppercase text-white mb-4">TARRAGONA <span class="text-sky-500">RP</span></h2>
+            <p class="text-lg text-slate-400 max-w-2xl mb-8 leading-relaxed">
+                La experiencia definitiva de Roleplay en <span class="text-white font-bold">ERLC: Liberty County</span>. Un servidor serio, basado en España, con sistemas únicos y una comunidad activa.
+            </p>
         </header>
-    </div>
 
-    <div id="page-servicios" class="page-content max-w-7xl mx-auto px-6 py-12">
-        <h2 class="text-3xl font-black uppercase mb-10 border-l-4 border-sky-500 pl-4">Cuerpos y Servicios Públicos</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-            <div class="card-faccion">
-                <div class="logo-box text-blue-400"><i class="fas fa-shield-halved text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Mossos D´Squadra</h4>
-                <p class="text-slate-400 text-sm mt-2 flex-grow">Policía autonómica de Cataluña.</p>
-                <a href="https://discord.gg/MjdWpdbqf6" class="mt-4 block bg-blue-600/20 hover:bg-blue-600 py-2 rounded-lg text-center text-xs font-bold transition">DISCORD OFICIAL</a>
-            </div>
-            <div class="card-faccion" style="border-top-color: #15803d;">
-                <div class="logo-box text-green-500"><i class="fas fa-person-military-pointing text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Guardia Civil</h4>
-                <p class="text-slate-400 text-sm mt-2 flex-grow">Seguridad ciudadana y control de tráfico nacional.</p>
-                <a href="https://discord.gg/AJgmCsRddz" class="mt-4 block bg-green-600/20 hover:bg-green-600 py-2 rounded-lg text-center text-xs font-bold transition">DISCORD OFICIAL</a>
-            </div>
-            <div class="card-faccion">
-                <div class="logo-box text-blue-800"><i class="fas fa-building-shield text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Cuerpo Nacional de Policia</h4>
-                <p class="text-slate-400 text-sm mt-2 flex-grow">Orden público y seguridad urbana.</p>
-                <a href="https://discord.gg/ezfJvYSTBj" class="mt-4 block bg-blue-900/40 hover:bg-blue-800 py-2 rounded-lg text-center text-xs font-bold transition">DISCORD OFICIAL</a>
-            </div>
-            <div class="card-faccion" style="border-top-color: #06b6d4;">
-                <div class="logo-box text-cyan-400"><i class="fas fa-city text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Guardia Urbana</h4>
-                <p class="text-slate-400 text-sm mt-2 flex-grow">Policía local de proximidad.</p>
-                <a href="https://discord.gg/Dre9cHJvfS" class="mt-4 block bg-cyan-600/20 hover:bg-cyan-600 py-2 rounded-lg text-center text-xs font-bold transition">DISCORD OFICIAL</a>
-            </div>
-            <div class="card-faccion" style="border-top-color: #eab308;">
-                <div class="logo-box text-yellow-500"><i class="fas fa-ambulance text-2xl"></i></div>
-                <h4 class="font-bold text-lg">CatSalud</h4>
-                <p class="text-slate-400 text-sm mt-2 flex-grow">Servicios de emergencias médicas.</p>
-                <a href="https://discord.gg/YZfUjrauBf" class="mt-4 block bg-yellow-600/20 hover:bg-yellow-600 py-2 rounded-lg text-center text-xs font-bold transition">DISCORD OFICIAL</a>
-            </div>
-            <div class="card-faccion" style="border-top-color: #dc2626;">
-                <div class="logo-box text-red-500"><i class="fas fa-fire-extinguisher text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Bomberos</h4>
-                <p class="text-slate-400 text-sm mt-2 flex-grow">Prevención y salvamento municipal.</p>
-                <a href="https://discord.gg/GR4DccMsjx" class="mt-4 block bg-red-600/20 hover:bg-red-600 py-2 rounded-lg text-center text-xs font-bold transition">DISCORD OFICIAL</a>
-            </div>
-            <div class="card-faccion" style="border-top-color: #f97316;">
-                <div class="logo-box text-orange-400"><i class="fas fa-cone text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Conservación</h4>
-                <p class="text-slate-400 text-sm mt-2 flex-grow">Mantenimiento vial (En progreso).</p>
-                <span class="mt-4 block py-2 text-center text-[10px] text-slate-500 uppercase font-bold tracking-widest">En Construcción</span>
-            </div>
-        </div>
-
-        <h2 class="text-3xl font-black uppercase mb-10 border-l-4 border-purple-500 pl-4">Facciones e Ilegales</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="card-faccion" style="border-top-color: #10b981;">
-                <div class="logo-box text-green-400"><i class="fas fa-briefcase text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Amazon / Prosegur / BBVA</h4>
-                <p class="text-slate-400 text-sm mt-2">Empresas privadas del sector servicios y seguridad.</p>
-                <a href="https://discord.gg/fmN8kE7uBf" class="mt-4 block bg-green-600/20 hover:bg-green-600 py-2 rounded-lg text-center text-xs font-bold transition">POSTULACIONES</a>
-            </div>
-            <div class="card-faccion" style="border-top-color: #a855f7;">
-                <div class="logo-box text-purple-400"><i class="fas fa-skull text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Cielo Azul</h4>
-                <p class="text-slate-400 text-sm mt-2 italic">La mafia dominante de Tarragona.</p>
-                <a href="https://discord.gg/fmN8kE7uBf" class="mt-4 block bg-purple-600/20 hover:bg-purple-600 py-2 rounded-lg text-center text-xs font-bold transition">CONTACTO MAFIA</a>
-            </div>
-        </div>
-    </div>
-
-    <div id="page-seguras" class="page-content max-w-4xl mx-auto px-6 py-12">
-        <h2 class="text-4xl font-black italic uppercase mb-8">Zonas Seguras</h2>
-        <div class="space-y-12">
-            <div class="bg-blue-900/20 p-6 rounded-2xl border border-blue-500/20">
-                <h3 class="text-xl font-bold mb-4 text-sky-400 underline">TARRAGONA GENERAL</h3>
-                <ul class="space-y-2 text-slate-300">
-                    <li>➤ Comisaria GC Badalona y Mossos (River City)</li>
-                    <li>➤ Comisaria CNP y Guàrdia Urbana (Springfield)</li>
-                    <li>➤ Todos los Spawns</li>
-                    <li>➤ Bomberos (Base 1) y SEM (Base 2)</li>
-                </ul>
-            </div>
-            <div class="bg-slate-900/40 p-6 rounded-2xl border border-white/5">
-                <h3 class="text-xl font-bold mb-4 text-sky-400 underline">DETALLE BADALONA</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                    <ul class="space-y-2 text-slate-300">
-                        <li>➤ Hospital de Can Ruti</li>
-                        <li>➤ Tienda de Armas</li>
-                        <li>➤ Gasolineras Repsol</li>
-                    </ul>
-                    <ul class="space-y-2 text-slate-300">
-                        <li>➤ Cárcel</li>
-                        <li>➤ Spawn de River City</li>
-                        <li>➤ Bombers de la Generalitat</li>
-                    </ul>
+        <section class="max-w-7xl mx-auto px-6 py-20 border-t border-white/5">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img src="./safezones.png" alt="Mapa Safezones" class="w-full rounded-3xl shadow-2xl border border-white/10">
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-3xl font-black uppercase italic mb-6 text-sky-500">Zonas Seguras</h3>
+                    <p class="text-slate-400 mb-6">Es necesario que sepas las siguientes zonas seguras donde no puedes realizar rol agresivo (armas, muertes, etc):</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <ul class="space-y-2 text-slate-300">
+                            <li>➤ Comisaría G.C. (Badalona/River)</li>
+                            <li>➤ Comisaría Mossos (River City)</li>
+                            <li>➤ Comisaría CNP/Urbana (Springfield)</li>
+                            <li>➤ Todos los Spawns de jugadores</li>
+                        </ul>
+                        <ul class="space-y-2 text-slate-300">
+                            <li>➤ Hospital de Can Ruti</li>
+                            <li>➤ Gasolineras Repsol y Armería</li>
+                            <li>➤ Bases de Bomberos y SEM</li>
+                            <li>➤ Cárcel Municipal</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-6 py-20 border-t border-white/5">
+            <h3 class="text-3xl font-black uppercase italic mb-10 text-center">Nuestras Facciones y Servicios</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card-faccion">
+                    <h4 class="font-bold text-lg mb-3 text-sky-400 uppercase">Servicios Públicos</h4>
+                    <ul class="text-xs space-y-2 text-slate-400 mb-6">
+                        <li>• Guardia Civil (Seguridad Nacional)</li>
+                        <li>• Mossos D'Squadra (Autonómica)</li>
+                        <li>• CNP (Cuerpo Nacional de Policía)</li>
+                        <li>• Guardia Urbana (Policía Local)</li>
+                        <li>• Bomberos y SEM (CatSalud)</li>
+                        <li>• Conservación (En progreso)</li>
+                    </ul>
+                    <div class="mt-auto space-y-2">
+                        <a href="https://discord.gg/AJgmCsRddz" class="block py-2 bg-white/5 hover:bg-white/10 text-center rounded-lg text-[10px] font-bold">DISCORD G.C.</a>
+                        <a href="https://discord.gg/ezfJvYSTBj" class="block py-2 bg-white/5 hover:bg-white/10 text-center rounded-lg text-[10px] font-bold">DISCORD CNP</a>
+                    </div>
+                </div>
+                <div class="card-faccion" style="border-top-color: #10b981;">
+                    <h4 class="font-bold text-lg mb-3 text-green-500 uppercase">Empresas Legales</h4>
+                    <p class="text-xs text-slate-400 mb-6 leading-relaxed">Gestiona la logística, transporte y economía del servidor a través de nuestras empresas certificadas.</p>
+                    <ul class="text-[10px] uppercase font-bold text-slate-500 mb-6">
+                        <li>• Amazon Logistics</li>
+                        <li>• Prosegur Seguridad</li>
+                        <li>• BBVA Banca</li>
+                    </ul>
+                    <a href="https://discord.gg/fmN8kE7uBf" class="mt-auto py-2 bg-green-600/20 hover:bg-green-600 text-center rounded-lg text-[10px] font-bold">POSTULARSE</a>
+                </div>
+                <div class="card-faccion" style="border-top-color: #a855f7;">
+                    <h4 class="font-bold text-lg mb-3 text-purple-500 uppercase">Cielo Azul</h4>
+                    <p class="text-xs text-slate-400 mb-6 italic">La organización criminal que controla el bajo mundo. Únete a la única mafia oficial de Tarragona.</p>
+                    <a href="https://discord.gg/fmN8kE7uBf" class="mt-auto py-2 bg-purple-600/20 hover:bg-purple-600 text-center rounded-lg text-[10px] font-bold">CONTACTAR MAFIA</a>
+                </div>
+            </div>
+        </section>
     </div>
 
     <div id="page-normativa" class="page-content max-w-7xl mx-auto px-6 py-12">
+        <h2 class="text-4xl font-black uppercase italic mb-12 border-b border-white/5 pb-4">Reglas y Conceptos</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <section>
-                <h2 class="text-2xl font-black italic uppercase mb-8 text-sky-500">Normativa Empresas y Servicios</h2>
-                <div class="space-y-6 text-sm">
-                    <div class="p-4 glass rounded-xl"><b>1. Respeto:</b> Dirígete siempre con respeto a compañeros y superiores.</div>
-                    <div class="p-4 glass rounded-xl"><b>2. Uso de Canales:</b> Utiliza cada canal de Discord según su propósito.</div>
-                    <div class="p-4 glass rounded-xl"><b>3. Herramientas:</b> Respeta las normas de uso de Drive, Trello, etc.</div>
-                    <div class="p-4 glass rounded-xl"><b>4. Confidencialidad:</b> Prohibido compartir info sensible fuera de la empresa.</div>
-                    <div class="p-4 glass rounded-xl"><b>5. Prohibiciones:</b> Spam, contenido ilegal o publicidad no autorizada.</div>
+            <div>
+                <h3 class="text-xl font-bold text-sky-500 uppercase mb-6 italic">Normativa de Empresas</h3>
+                <div class="space-y-4 text-sm bg-slate-900/40 p-6 rounded-2xl border border-white/5">
+                    <p><b>1. Respeto:</b> Dirígete siempre con respeto a compañeros y superiores.</p>
+                    <p><b>2. Canales:</b> Utiliza cada canal de Discord según su propósito.</p>
+                    <p><b>3. Herramientas:</b> Respeta las normas de Drive, Trello y Notion.</p>
+                    <p><b>4. Confidencialidad:</b> No compartas información sensible fuera de la empresa.</p>
+                    <p><b>5. Prohibiciones:</b> Prohibido el spam, publicidad o contenido ilegal.</p>
                 </div>
-            </section>
-            <section>
-                <h2 class="text-2xl font-black italic uppercase mb-8 text-purple-500">Conceptos de Rol</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                    <div class="p-3 bg-white/5 rounded-lg"><b>MG:</b> Info OOC usada IC.</div>
-                    <div class="p-3 bg-white/5 rounded-lg"><b>PG:</b> Cosas imposibles o forzar rol.</div>
-                    <div class="p-3 bg-white/5 rounded-lg"><b>DM:</b> Matar sin motivo previo.</div>
-                    <div class="p-3 bg-white/5 rounded-lg"><b>VDM:</b> Atropellar por diversión.</div>
-                    <div class="p-3 bg-white/5 rounded-lg"><b>CL:</b> Salirse para evitar rol.</div>
-                    <div class="p-3 bg-white/5 rounded-lg"><b>VV:</b> Valorar la vida propia.</div>
-                    <div class="p-3 bg-white/5 rounded-lg"><b>PK:</b> Muerte temporal (olvido).</div>
-                    <div class="p-3 bg-white/5 rounded-lg"><b>CK:</b> Muerte total del personaje.</div>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-purple-500 uppercase mb-6 italic">Conceptos de Rol</h3>
+                <div class="grid grid-cols-2 gap-4 text-[10px]">
+                    <div class="p-3 glass rounded-lg"><b>MG:</b> Info OOC usada IC.</div>
+                    <div class="p-3 glass rounded-lg"><b>PG:</b> Forzar rol o irreal.</div>
+                    <div class="p-3 glass rounded-lg"><b>DM:</b> Matar sin motivo previo.</div>
+                    <div class="p-3 glass rounded-lg"><b>VDM:</b> Usar vehículo como arma.</div>
+                    <div class="p-3 glass rounded-lg"><b>VV:</b> Valorar la vida propia.</div>
+                    <div class="p-3 glass rounded-lg"><b>RK:</b> Revenge Kill (Venganza).</div>
+                    <div class="p-3 glass rounded-lg"><b>CL:</b> Desconectarse en rol.</div>
+                    <div class="p-3 glass rounded-lg"><b>NRE:</b> No Rol de Entorno.</div>
                 </div>
-                <div class="mt-8 p-4 border border-sky-500/30 rounded-xl bg-sky-500/5">
-                    <h4 class="font-bold text-sky-400 mb-2">Comandos Rápidos</h4>
-                    <p class="text-xs text-slate-400"><b>/me:</b> Acciones físicas. <br> <b>/do:</b> Entorno y preguntas. <br> <b>/try:</b> Probabilidad de éxito.</p>
-                </div>
-            </section>
+            </div>
         </div>
     </div>
 
-    <footer class="py-12 glass border-t border-white/5 text-center mt-20">
-        <p class="text-slate-600 text-[10px] uppercase tracking-[0.5em]">© 2026 TARRAGONA RP - ERLC LIBERTY COUNTY</p>
+    <footer class="py-16 glass border-t border-white/5 text-center mt-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-center gap-10 mb-8 text-3xl">
+                <a href="#" class="text-slate-500 hover:text-red-600 transition"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="text-slate-500 hover:text-white transition"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="text-slate-500 hover:text-pink-500 transition"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="text-slate-600 text-[10px] uppercase tracking-[0.5em] font-bold">© 2026 TARRAGONA RP - ERLC LIBERTY COUNTY</p>
+        </div>
     </footer>
 
     <script>
@@ -191,6 +160,5 @@
             window.scrollTo(0, 0);
         }
     </script>
-    <script type="module" src="firebase-config.js"></script>
 </body>
 </html>
