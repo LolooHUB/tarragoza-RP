@@ -7,108 +7,162 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --azul-oscuro: #020617; --azul-card: #0f172a; --cian-neon: #0ea5e9; }
-        body { background-color: var(--azul-oscuro); color: #f1f5f9; }
+        :root { --azul-fondo: #020617; --azul-card: #0f172a; --cian-neon: #0ea5e9; }
+        body { background-color: var(--azul-fondo); color: #f1f5f9; overflow-x: hidden; }
+        
         .bg-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; display: flex; flex-direction: column; }
-        .bg-image { height: 50vh; width: 100%; object-fit: cover; opacity: 0.15; filter: saturate(1.2) blue; }
-        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .card-faccion { background: var(--azul-card); border-radius: 1.5rem; padding: 1.5rem; border: 1px solid rgba(14, 165, 233, 0.1); transition: 0.3s; }
-        .card-faccion:hover { transform: translateY(-5px); border-color: var(--cian-neon); }
-        .logo-faccion { width: 60px; height: 60px; background: #1e293b; border-radius: 12px; display: flex; items-center; justify-content: center; margin-bottom: 1rem; }
+        .bg-image { height: 50vh; width: 100%; object-fit: cover; opacity: 0.12; filter: saturate(1.5) contrast(1.2); }
+
+        .glass { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        
+        /* Grid System mejorado */
+        .faccion-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        
+        .card-faccion { 
+            background: var(--azul-card); 
+            border-radius: 1.25rem; 
+            padding: 2rem; 
+            border-top: 4px solid transparent;
+            display: flex; flex-direction: column; height: 100%;
+            transition: all 0.3s ease;
+        }
+        .card-faccion:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
+        
+        /* Colores por tipo */
+        .tipo-seguridad { border-top-color: #3b82f6; } /* Azul */
+        .tipo-legal { border-top-color: #10b981; }     /* Verde */
+        .tipo-ilegal { border-top-color: #a855f7; }    /* Morado */
+
+        .logo-box { 
+            width: 70px; height: 70px; 
+            background: #1e293b; border-radius: 15px; 
+            display: flex; items-center; justify-content: center; 
+            margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.1);
+        }
     </style>
 </head>
 <body>
+
     <div class="bg-container">
         <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=1920" class="bg-image">
         <img src="https://images.unsplash.com/photo-1517909503041-66ea82ff5738?q=80&w=1920" class="bg-image">
     </div>
 
-    <nav class="sticky top-0 z-50 glass border-b border-white/5 p-4">
+    <nav class="sticky top-0 z-50 glass border-b border-white/5 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-4">
-                <img src="./logosv.png" alt="Logo SV" class="w-12 h-12">
-                <h1 class="text-xl font-black italic uppercase tracking-tighter">Tarragona<span class="text-sky-500">RP</span></h1>
+                <img src="./logosv.png" alt="Logo" class="w-14 h-14 object-contain">
+                <div>
+                    <h1 class="text-xl font-black italic tracking-tighter leading-none">TARRAGONA <span class="text-sky-500">RP</span></h1>
+                    <span class="text-[10px] uppercase tracking-[0.3em] text-slate-500">Liberty County</span>
+                </div>
             </div>
-            <a href="https://discord.gg/gZbckMjZns" class="bg-[#5865F2] hover:bg-[#4752c4] px-6 py-2.5 rounded-xl font-bold flex items-center transition">
-                <i class="fab fa-discord mr-2 text-xl"></i> INGRESA YA
+            <a href="https://discord.gg/gZbckMjZns" class="bg-[#5865F2] hover:bg-[#4752c4] px-8 py-3 rounded-2xl font-bold flex items-center transition shadow-lg">
+                <i class="fab fa-discord mr-3 text-xl"></i> INGRESA YA
             </a>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 py-12">
-        <h2 class="text-3xl font-black mb-8 border-l-4 border-sky-500 pl-4 uppercase">Servicios Públicos</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            <div class="card-faccion">
-                <div class="logo-faccion text-sky-400"><i class="fas fa-shield-alt text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Guardia Civil</h4>
-                <p class="text-slate-400 text-sm mt-2">Seguridad ciudadana y control en carreteras nacionales.</p>
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        
+        <section class="mb-20">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="h-8 w-2 bg-blue-600 rounded-full"></div>
+                <h2 class="text-4xl font-black uppercase italic">Cuerpos de Seguridad</h2>
             </div>
-            <div class="card-faccion">
-                <div class="logo-faccion text-sky-400"><i class="fas fa-building-shield text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Policia Nacional (CNP)</h4>
-                <p class="text-slate-400 text-sm mt-2">Cuerpo armado de naturaleza civil encargado de la seguridad urbana.</p>
+            <div class="faccion-grid">
+                <div class="card-faccion tipo-seguridad">
+                    <div class="logo-box text-blue-400"><i class="fas fa-shield-halved text-3xl"></i></div>
+                    <h4 class="text-xl font-bold">Mossos D´Squadra</h4>
+                    <p class="text-slate-400 text-sm mt-3 flex-grow">Policía autonómica de Cataluña con plenas competencias ciudadanas.</p>
+                </div>
+                <div class="card-faccion tipo-seguridad">
+                    <div class="logo-box text-blue-500"><i class="fas fa-person-military-pointing text-3xl"></i></div>
+                    <h4 class="text-xl font-bold">Guardia Civil</h4>
+                    <p class="text-slate-400 text-sm mt-3 flex-grow">Cuerpo de seguridad de naturaleza militar encargado de fronteras y carreteras.</p>
+                </div>
+                <div class="card-faccion tipo-seguridad">
+                    <div class="logo-box text-blue-600"><i class="fas fa-building-shield text-3xl"></i></div>
+                    <h4 class="text-xl font-bold">Policía Nacional (CNP)</h4>
+                    <p class="text-slate-400 text-sm mt-3 flex-grow">Garantiza la seguridad ciudadana en los núcleos urbanos principales.</p>
+                </div>
+                <div class="card-faccion tipo-seguridad">
+                    <div class="logo-box text-cyan-400"><i class="fas fa-city text-3xl"></i></div>
+                    <h4 class="text-xl font-bold">Guardia Urbana</h4>
+                    <p class="text-slate-400 text-sm mt-3 flex-grow">Policía local de proximidad para el mantenimiento de la convivencia.</p>
+                </div>
+                <div class="card-faccion tipo-seguridad">
+                    <div class="logo-box text-red-500"><i class="fas fa-fire-extinguisher text-3xl"></i></div>
+                    <h4 class="text-xl font-bold">Bomberos</h4>
+                    <p class="text-slate-400 text-sm mt-3 flex-grow">Prevención, rescate y extinción de incendios en toda la provincia.</p>
+                </div>
+                <div class="card-faccion tipo-seguridad">
+                    <div class="logo-box text-green-500"><i class="fas fa-kit-medical text-3xl"></i></div>
+                    <h4 class="text-xl font-bold">CatSalud</h4>
+                    <p class="text-slate-400 text-sm mt-3 flex-grow">Sistema de salud pública encargado de urgencias y traslados médicos.</p>
+                </div>
             </div>
-            <div class="card-faccion">
-                <div class="logo-faccion text-sky-400"><i class="fas fa-user-shield text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Mossos D´Squadra</h4>
-                <p class="text-slate-400 text-sm mt-2">Policía autonómica de Cataluña con plenas competencias.</p>
-            </div>
-            <div class="card-faccion">
-                <div class="logo-faccion text-sky-400"><i class="fas fa-city text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Guardia Urbana</h4>
-                <p class="text-slate-400 text-sm mt-2">Policía local dedicada a la convivencia y tráfico en la ciudad.</p>
-            </div>
-            <div class="card-faccion">
-                <div class="logo-faccion text-red-500"><i class="fas fa-fire-extinguisher text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Bomberos</h4>
-                <p class="text-slate-400 text-sm mt-2">Extinción de incendios y rescate en situaciones críticas.</p>
-            </div>
-            <div class="card-faccion">
-                <div class="logo-faccion text-green-500"><i class="fas fa-heartbeat text-2xl"></i></div>
-                <h4 class="font-bold text-lg">CatSalud</h4>
-                <p class="text-slate-400 text-sm mt-2">Servicio de emergencias médicas de alta velocidad.</p>
-            </div>
-            <div class="card-faccion">
-                <div class="logo-faccion text-yellow-500"><i class="fas fa-cone text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Conservación</h4>
-                <p class="text-slate-400 text-sm mt-2">Mantenimiento y señalización de las vías públicas.</p>
-            </div>
-        </div>
+        </section>
 
-        <h2 class="text-3xl font-black mb-8 border-l-4 border-green-500 pl-4 uppercase">Empresas Privadas</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            <div class="card-faccion">
-                <div class="logo-faccion text-orange-500"><i class="fab fa-amazon text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Amazon</h4>
-                <p class="text-slate-400 text-sm mt-2">Logística y distribución de paquetes en toda la región.</p>
+        <section class="mb-20">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="h-8 w-2 bg-green-600 rounded-full"></div>
+                <h2 class="text-4xl font-black uppercase italic">Facciones y Empresas</h2>
             </div>
-            <div class="card-faccion">
-                <div class="logo-faccion text-yellow-600"><i class="fas fa-truck-front text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Prosegur</h4>
-                <p class="text-slate-400 text-sm mt-2">Seguridad privada y transporte de valores blindados.</p>
+            <div class="faccion-grid">
+                <div class="card-faccion tipo-legal">
+                    <div class="logo-box text-yellow-500"><i class="fas fa-hard-hat text-3xl"></i></div>
+                    <h4 class="text-xl font-bold">Conservación</h4>
+                    <p class="text-slate-400 text-sm mt-3">Mantenimiento técnico de carreteras y mobiliario urbano.</p>
+                    <a href="https://discord.gg/fmN8kE7uBf" class="mt-6 inline-block bg-slate-800 hover:bg-slate-700 py-2 rounded-lg text-center font-bold text-xs uppercase tracking-widest transition">Postularse</a>
+                </div>
+                <div class="card-faccion tipo-legal">
+                    <div class="logo-box text-orange-500"><i class="fab fa-amazon text-3xl"></i></div>
+                    <h4 class="text-xl font-bold">Amazon</h4>
+                    <p class="text-slate-400 text-sm mt-3">Líder en logística y transporte de mercancías puerta a puerta.</p>
+                    <a href="https://discord.gg/fmN8kE7uBf" class="mt-6 inline-block bg-slate-800 hover:bg-slate-700 py-2 rounded-lg text-center font-bold text-xs uppercase tracking-widest transition">Postularse</a>
+                </div>
+                <div class="card-faccion tipo-legal">
+                    <div class="logo-box text-yellow-600"><i class="fas fa-truck-front text-3xl"></i></div>
+                    <h4 class="text-xl font-bold">Prosegur</h4>
+                    <p class="text-slate-400 text-sm mt-3">Seguridad privada especializada en custodia y transporte de valores.</p>
+                    <a href="https://discord.gg/fmN8kE7uBf" class="mt-6 inline-block bg-slate-800 hover:bg-slate-700 py-2 rounded-lg text-center font-bold text-xs uppercase tracking-widest transition">Postularse</a>
+                </div>
+                <div class="card-faccion tipo-legal">
+                    <div class="logo-box text-blue-500"><i class="fas fa-building-columns text-3xl"></i></div>
+                    <h4 class="text-xl font-bold">BBVA</h4>
+                    <p class="text-slate-400 text-sm mt-3">Entidad financiera central para el comercio y gestión económica.</p>
+                    <a href="https://discord.gg/fmN8kE7uBf" class="mt-6 inline-block bg-slate-800 hover:bg-slate-700 py-2 rounded-lg text-center font-bold text-xs uppercase tracking-widest transition">Postularse</a>
+                </div>
             </div>
-            <div class="card-faccion">
-                <div class="logo-faccion text-blue-600"><i class="fas fa-university text-2xl"></i></div>
-                <h4 class="font-bold text-lg">BBVA</h4>
-                <p class="text-slate-400 text-sm mt-2">Servicios bancarios y gestión de la economía ciudadana.</p>
-            </div>
-        </div>
+        </section>
 
-        <h2 class="text-3xl font-black mb-8 border-l-4 border-purple-500 pl-4 uppercase">Bajo Mundo</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="card-faccion border-purple-900/40 bg-purple-900/10">
-                <div class="logo-faccion text-purple-400"><i class="fas fa-skull text-2xl"></i></div>
-                <h4 class="font-bold text-lg">Cielo Azul</h4>
-                <p class="text-slate-400 text-sm mt-2">Organización de alto nivel que opera desde las sombras.</p>
-                <a href="https://discord.gg/fmN8kE7uBf" class="mt-4 block text-xs text-purple-400 font-bold uppercase tracking-widest">Postularse →</a>
+        <section>
+            <div class="flex items-center gap-4 mb-10">
+                <div class="h-8 w-2 bg-purple-600 rounded-full"></div>
+                <h2 class="text-4xl font-black uppercase italic">Mafias e Ilegales</h2>
             </div>
-        </div>
+            <div class="faccion-grid">
+                <div class="card-faccion tipo-ilegal bg-purple-950/20 border-purple-500/20">
+                    <div class="logo-box text-purple-400"><i class="fas fa-cloud-moon text-3xl"></i></div>
+                    <h4 class="text-xl font-bold">Cielo Azul</h4>
+                    <p class="text-slate-400 text-sm mt-3">Organización criminal que domina el mercado negro desde las sombras.</p>
+                    <a href="https://discord.gg/fmN8kE7uBf" class="mt-6 inline-block bg-purple-600 hover:bg-purple-700 py-3 rounded-xl text-center font-bold text-sm uppercase tracking-widest transition shadow-lg">Contactar Mafia</a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="py-12 glass border-t border-white/5 text-center">
-        <p class="text-slate-500 text-sm font-bold tracking-widest uppercase">© 2026 TARRAGONA RP. Inspirado en España.</p>
+    <footer class="py-16 glass border-t border-white/5 text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <img src="./logosv.png" alt="Logo" class="w-20 h-20 mx-auto mb-6 opacity-50 grayscale hover:grayscale-0 transition">
+            <p class="text-slate-400 text-sm font-bold tracking-widest uppercase">© 2026 TARRAGONA RP. Todos los derechos reservados.</p>
+            <p class="text-[10px] text-slate-600 mt-2 uppercase tracking-[0.5em]">Inspirado en la cultura y seguridad de España</p>
+        </div>
     </footer>
 
     <script type="module" src="firebase-config.js"></script>
+
 </body>
 </html>
