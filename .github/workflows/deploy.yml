@@ -9,7 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Este paso crea el archivo JS usando el secreto de GitHub
       - name: Create Firebase Config File
         run: |
           echo "import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';" > firebase-config.js
@@ -17,11 +16,10 @@ jobs:
           echo "${{ secrets.FIREBASE_CONFIG_JS }}" >> firebase-config.js
           echo "const app = initializeApp(firebaseConfig);" >> firebase-config.js
           echo "const analytics = getAnalytics(app);" >> firebase-config.js
-          echo "console.log('Tarragona RP: Firebase Cargado.');" >> firebase-config.js
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_CONFIG_JS }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
           channelId: live
           projectId: tarragoza
