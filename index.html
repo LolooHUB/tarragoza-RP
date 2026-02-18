@@ -14,25 +14,26 @@
             --verde-neon: #10b981; 
             --rojo-neon: #ff0040;
             --purple-neon: #a855f7;
-            --orange-neon: #f97316;
+            --yellow-prosegur: #facc15;
+            --mossos-glow: #00ccff;
         }
 
         body { 
             background-color: var(--azul-fondo); 
+            /* FONDO GRID RESTAURADO */
             background-image: 
-                radial-gradient(circle at 50% 20%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
-                linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
-            background-size: 100% 100%, 40px 40px, 40px 40px;
+                linear-gradient(rgba(14, 165, 233, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14, 165, 233, 0.08) 1px, transparent 1px);
+            background-size: 35px 35px;
             color: #f1f5f9; 
             font-family: 'Inter', sans-serif; 
             scroll-behavior: smooth; 
         }
 
-        .glass { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(14, 165, 233, 0.2); }
+        .glass { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(12px); border: 1px solid rgba(14, 165, 233, 0.2); }
         .page-content { display: none; animation: fadeIn 0.4s ease-out; }
         .page-active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; filter: blur(8px); } to { opacity: 1; filter: blur(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         .bubble-card { 
             background: var(--azul-card); 
@@ -46,13 +47,15 @@
         }
 
         .nav-link { cursor: pointer; transition: 0.3s; font-weight: 800; font-size: 11px; text-transform: uppercase; border-bottom: 2px solid transparent; }
-        .nav-link.active { color: var(--cian-neon); border-bottom-color: var(--cian-neon); text-shadow: 0 0 10px var(--cian-neon); }
+        .nav-link.active { color: var(--cian-neon); border-bottom-color: var(--cian-neon); text-shadow: 0 0 8px var(--cian-neon); }
 
         .btn-join { background: #5865F2; padding: 6px 12px; border-radius: 6px; font-size: 9px; font-weight: 900; color: white; display: flex; align-items: center; gap: 6px; transition: 0.2s; text-transform: uppercase; }
-        .btn-join:hover { filter: brightness(1.2); box-shadow: 0 0 15px rgba(88, 101, 242, 0.4); }
+        .btn-join:hover { filter: brightness(1.2); box-shadow: 0 0 10px rgba(88, 101, 242, 0.5); }
 
         .icon-box { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.03); border-radius: 8px; font-size: 14px; }
-        .prosegur-vector { width: 22px; height: 22px; }
+        
+        /* VECTOR PROSEGUR AMARILLO ESPECÍFICO */
+        .prosegur-vector { width: 22px; height: 22px; filter: drop-shadow(0 0 2px var(--yellow-prosegur)); }
     </style>
 </head>
 <body>
@@ -70,7 +73,7 @@
                 <span class="nav-link" id="link-prensa" onclick="showPage('prensa')">Prensa</span>
                 <span class="nav-link" id="link-normativa" onclick="showPage('normativa')">Normativa</span>
             </div>
-            <a href="https://discord.gg/gZbckMjZns" class="btn-join px-5 py-2"><i class="fab fa-discord"></i> Discord</a>
+            <a href="https://discord.gg/gZbckMjZns" class="btn-join px-5 py-2"><i class="fab fa-discord"></i> Discord Oficial</a>
         </div>
     </nav>
 
@@ -78,54 +81,58 @@
         <div class="max-w-4xl mx-auto">
             <img src="./logosv.png" class="w-48 h-48 mx-auto mb-10 drop-shadow-[0_0_30px_rgba(14,165,233,0.4)]">
             <h2 class="text-6xl md:text-8xl font-black italic uppercase text-white mb-6 tracking-tighter">TARRAGONA <span class="text-sky-500">RP</span></h2>
-            <p class="text-slate-300 text-xl mb-12 leading-relaxed font-medium italic">El simulador de vida definitivo en ERLC. Oposita, trabaja o domina las calles en un entorno 100% realista basado en España.</p>
+            <p class="text-slate-300 text-xl mb-12 leading-relaxed font-medium italic">Comunidad líder en ERLC. Elige tu destino entre la ley y el caos en el simulador más realista de España.</p>
             <div class="flex flex-wrap justify-center gap-6">
-                <a href="https://discord.gg/gZbckMjZns" class="bg-[#5865F2] px-12 py-5 rounded-2xl font-black text-white uppercase text-xl hover:scale-105 transition shadow-[0_0_20px_rgba(88,101,242,0.4)]"><i class="fab fa-discord mr-2"></i> Entrar</a>
+                <a href="https://discord.gg/gZbckMjZns" class="bg-[#5865F2] px-12 py-5 rounded-2xl font-black text-white uppercase text-xl hover:scale-105 transition shadow-[0_0_20px_rgba(88,101,242,0.4)]"><i class="fab fa-discord mr-2"></i> Entrar al Servidor</a>
                 <button onclick="showPage('facciones')" class="bg-white/5 border-2 border-sky-500/30 px-12 py-5 rounded-2xl font-black text-white uppercase text-xl hover:bg-sky-500/10 transition">Explorar Facciones</button>
             </div>
         </div>
     </div>
 
     <div id="page-safezones" class="page-content max-w-6xl mx-auto px-6 py-16">
-        <h2 class="text-4xl font-black uppercase italic mb-10 border-l-8 border-sky-500 pl-6">Zonas Seguras</h2>
+        <h2 class="text-4xl font-black uppercase italic mb-10 border-l-8 border-sky-500 pl-6 text-white">Zonas Seguras</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 text-center">
             <div class="bubble-card p-6 rounded-2xl"><i class="fas fa-shield-halved text-sky-400 text-3xl mb-4"></i><h3 class="font-black text-white uppercase text-sm">Policía</h3><p class="text-slate-400 text-[10px]">Todas las comisarías</p></div>
-            <div class="bubble-card p-6 rounded-2xl"><i class="fas fa-hospital text-red-500 text-3xl mb-4"></i><h3 class="font-black text-white uppercase text-sm">Médicos</h3><p class="text-slate-400 text-[10px]">Hospitales y Bases</p></div>
-            <div class="bubble-card p-6 rounded-2xl"><i class="fas fa-gas-pump text-green-500 text-3xl mb-4"></i><h3 class="font-black text-white uppercase text-sm">Repsol</h3><p class="text-slate-400 text-[10px]">Gasolineras</p></div>
-            <div class="bubble-card p-6 rounded-2xl"><i class="fas fa-map-pin text-purple-500 text-3xl mb-4"></i><h3 class="font-black text-white uppercase text-sm">Spawn</h3><p class="text-slate-400 text-[10px]">Zonas de inicio</p></div>
+            <div class="bubble-card p-6 rounded-2xl"><i class="fas fa-hospital text-red-500 text-3xl mb-4"></i><h3 class="font-black text-white uppercase text-sm">Médicos</h3><p class="text-slate-400 text-[10px]">Hospitales y Bases SEM</p></div>
+            <div class="bubble-card p-6 rounded-2xl"><i class="fas fa-gas-pump text-green-500 text-3xl mb-4"></i><h3 class="font-black text-white uppercase text-sm">Repsol</h3><p class="text-slate-400 text-[10px]">Gasolineras autorizadas</p></div>
+            <div class="bubble-card p-6 rounded-2xl"><i class="fas fa-map-pin text-purple-500 text-3xl mb-4"></i><h3 class="font-black text-white uppercase text-sm">Spawn</h3><p class="text-slate-400 text-[10px]">Zonas de inicio seguro</p></div>
         </div>
         <img src="./safezones.png" class="w-full rounded-3xl border border-sky-500/30 shadow-2xl">
     </div>
 
     <div id="page-facciones" class="page-content max-w-7xl mx-auto px-6 py-16">
-        <h2 class="text-4xl font-black uppercase italic mb-10 text-white">Facciones</h2>
+        <h2 class="text-4xl font-black uppercase italic mb-10 text-white">Facciones Oficiales</h2>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
             <div class="bubble-card p-8 rounded-3xl border-t-4 border-sky-500">
                 <h4 class="text-sky-400 font-black uppercase italic text-xl mb-6">Servicios Públicos</h4>
                 <div class="space-y-4 font-bold text-[10px] uppercase">
                     <div class="flex items-center gap-4"><div class="icon-box text-[#008f39]"><i class="fas fa-shield-alt"></i></div><span>Guardia Civil</span><a href="https://discord.gg/AJgmCsRddz" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
                     <div class="flex items-center gap-4"><div class="icon-box text-[#0055a4]"><i class="fas fa-building-shield"></i></div><span>C.N.P.</span><a href="https://discord.gg/ezfJvYSTBj" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
-                    <div class="flex items-center gap-4"><div class="icon-box text-[#002b5c]"><i class="fas fa-motorcycle"></i></div><span>Mossos D´Squadra</span><a href="https://discord.gg/MjdWpdbqf6" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
+                    <div class="flex items-center gap-4"><div class="icon-box text-[#00ccff] shadow-[0_0_10px_#00ccff]"><i class="fas fa-motorcycle"></i></div><span>Mossos D´Squadra</span><a href="https://discord.gg/MjdWpdbqf6" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
                     <div class="flex items-center gap-4"><div class="icon-box text-blue-400"><i class="fas fa-city"></i></div><span>Guardia Urbana</span><a href="https://discord.gg/Dre9cHJvfS" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
                     <div class="flex items-center gap-4"><div class="icon-box text-red-500"><i class="fas fa-ambulance"></i></div><span>S.E.M / Médicos</span><a href="https://discord.gg/YZfUjrauBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
                     <div class="flex items-center gap-4"><div class="icon-box text-orange-500"><i class="fas fa-fire-extinguisher"></i></div><span>Bomberos</span><a href="https://discord.gg/GR4DccMsjx" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
+                    <div class="flex items-center gap-4 opacity-70"><div class="icon-box text-yellow-600"><i class="fas fa-hard-hat"></i></div><span>Conservación</span><span class="ml-auto text-[8px] italic">Próximamente</span></div>
                 </div>
             </div>
+
             <div class="bubble-card p-8 rounded-3xl border-t-4 border-green-500">
                 <h4 class="text-green-400 font-black uppercase italic text-xl mb-6">Empresas Legales</h4>
                 <div class="space-y-4 font-bold text-[10px] uppercase">
                     <div class="flex items-center gap-4"><div class="icon-box text-orange-400"><i class="fab fa-amazon"></i></div><span>Amazon Logistics</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
                     <div class="flex items-center gap-4"><div class="icon-box text-blue-600"><i class="fas fa-university"></i></div><span>BBVA España</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
-                    <div class="flex items-center gap-4"><div class="icon-box"><img src="./prosegur.png" class="prosegur-vector"></div><span>Prosegur</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
-                    <div class="flex items-center gap-4 opacity-50"><div class="icon-box text-yellow-600"><i class="fas fa-hard-hat"></i></div><span>Conservación</span><span class="ml-auto text-[8px] italic">Próximamente</span></div>
+                    <div class="flex items-center gap-4"><div class="icon-box"><img src="./prosegur.png" class="prosegur-vector" style="filter: none; width: 20px;"></div><span class="text-green-400">Prosegur</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
                 </div>
             </div>
+
             <div class="bubble-card p-8 rounded-3xl border-t-4 border-purple-500">
-                <h4 class="text-purple-400 font-black uppercase italic text-xl mb-6">Bandas</h4>
+                <h4 class="text-purple-400 font-black uppercase italic text-xl mb-6">Bandas Ilegales</h4>
                 <div class="flex items-center gap-4 font-bold text-[10px] uppercase">
-                    <div class="icon-box text-purple-400"><i class="fas fa-skull"></i></div><span>Banda Cielo Azul</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a>
+                    <div class="icon-box text-purple-400"><i class="fas fa-skull-crossbones"></i></div><span>Banda Cielo Azul</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -133,7 +140,7 @@
         <div class="bubble-card p-20 rounded-[3rem] border-dashed border-2 border-orange-500/30">
             <h2 class="text-6xl font-black uppercase italic text-white mb-6">Próximamente</h2>
             <p class="text-orange-500 text-2xl font-black uppercase tracking-widest mb-10 leading-tight">Tarragona se está preparando,<br>¿qué esperas? ¡andá preparándote vos también!</p>
-            <i class="fas fa-camera-retro text-5xl text-slate-700 animate-pulse"></i>
+            <i class="fas fa-broadcast-tower text-5xl text-slate-700 animate-pulse"></i>
         </div>
     </div>
 
@@ -141,26 +148,27 @@
         <h2 class="text-5xl font-black uppercase italic mb-16 text-center text-sky-500">Reglamento y Comandos</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div class="space-y-6">
-                <h3 class="text-3xl font-black uppercase text-red-500 border-b-2 border-red-500/20 pb-2">Normativa Básica</h3>
+                <h3 class="text-3xl font-black uppercase text-red-500 border-b-2 border-red-500/20 pb-2 flex items-center gap-3"><i class="fas fa-gavel"></i> Normativa Básica</h3>
                 <div class="space-y-4 font-bold text-[11px] uppercase">
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">MG: Info externa usada en el juego.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">PG: Acciones irreales o forzar rol ajeno.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">DM: Matar sin motivo ni diálogo previo.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">VV: Actúa con miedo real ante el peligro.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">MG (MetaGaming): Info externa usada en el juego.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">PG (PowerGaming): Acciones irreales o forzar rol ajeno.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">DM (DeathMatch): Matar sin motivo ni diálogo previo.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">VDM: Coche como arma principal.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">VV (Valorar Vida): Actúa con miedo real ante el peligro.</div>
                 </div>
-                <h3 class="text-3xl font-black uppercase text-blue-500 mt-10 border-b-2 border-blue-500/20 pb-2">Comandos</h3>
+                <h3 class="text-3xl font-black uppercase text-blue-500 mt-10 border-b-2 border-blue-500/20 pb-2 flex items-center gap-3"><i class="fas fa-keyboard"></i> Comandos de Rol</h3>
                 <div class="space-y-4 font-bold text-[11px] uppercase">
                     <div class="bubble-card p-5 rounded-xl">/me: Acciones físicas (Ej: /me le entrega los papeles).</div>
-                    <div class="bubble-card p-5 rounded-xl">/do: Describir entorno (Ej: /do ¿Tendría el cristal roto?).</div>
+                    <div class="bubble-card p-5 rounded-xl">/do: Describir entorno o sensaciones (Ej: /do ¿Tendría el cristal roto?).</div>
                 </div>
             </div>
             <div class="space-y-6">
-                <h3 class="text-3xl font-black uppercase text-yellow-500 border-b-2 border-yellow-500/20 pb-2">Empresas</h3>
+                <h3 class="text-3xl font-black uppercase text-yellow-500 border-b-2 border-yellow-500/20 pb-2 flex items-center gap-3"><i class="fas fa-briefcase"></i> Normativa Empresas</h3>
                 <div class="space-y-4 font-bold text-[11px] uppercase">
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">01. Respeto absoluto a compañeros y superiores.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">02. Uso correcto de canales de Discord.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">03. Confidencialidad total de proyectos.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">04. Obligatorio estar en el servidor de facción.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">01. Respeto absoluto a compañeros y superiores. Cero toxicidad.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">02. Uso correcto de canales de Discord. Evita el spam.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">03. Confidencialidad total de proyectos y chats internos.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">04. Obligatorio estar en el servidor de facción asignado.</div>
                 </div>
             </div>
         </div>
@@ -171,8 +179,9 @@
             <a href="#" class="text-4xl text-slate-600 hover:text-red-600 transition"><i class="fab fa-youtube"></i></a>
             <a href="#" class="text-4xl text-slate-600 hover:text-sky-400 transition"><i class="fab fa-tiktok"></i></a>
             <a href="#" class="text-4xl text-slate-600 hover:text-pink-600 transition"><i class="fab fa-instagram"></i></a>
+            <a href="https://discord.gg/gZbckMjZns" class="text-4xl text-slate-600 hover:text-[#5865F2] transition"><i class="fab fa-discord"></i></a>
         </div>
-        <p class="text-[10px] font-black uppercase text-slate-500 tracking-[0.5em]">© 2026 TARRAGONA RP - ELITE SIMULATION</p>
+        <p class="text-[10px] font-black uppercase text-slate-500 tracking-[0.5em]">© 2026 TARRAGONA RP - ESPAÑA REALISTA</p>
     </footer>
 
     <script>
