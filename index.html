@@ -29,7 +29,7 @@
         }
 
         .glass { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .page-content { display: none; animation: fadeIn 0.3s ease-out; }
+        .page-content { display: none; animation: fadeIn 0.3s ease-out; min-height: 70vh; }
         .page-active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
@@ -37,39 +37,25 @@
         .nav-link.active { color: var(--cian-neon); border-bottom-color: var(--cian-neon); }
         
         .card-lista { background: var(--azul-card); border-radius: 1rem; padding: 1.25rem; border-top: 3px solid #3b82f6; height: 100%; display: flex; flex-direction: column; }
-        .item-lista { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .item-lista { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         
         .icon-circle { width: 28px; height: 28px; background: rgba(14, 165, 233, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #0ea5e9; font-size: 12px; }
 
-        .sz-card { 
-            background: rgba(30, 41, 59, 0.8); 
-            border: 1px solid rgba(14, 165, 233, 0.3); 
-            padding: 1.5rem; 
-            border-radius: 1.25rem; 
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-        .sz-card:hover { 
-            background: rgba(30, 41, 59, 1); 
-            border-color: var(--cian-neon); 
-            transform: translateY(-5px);
-        }
+        .sz-card { background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(14, 165, 233, 0.3); padding: 1.5rem; border-radius: 1.25rem; transition: 0.3s; }
 
-        .btn-main-discord {
-            background: #5865F2;
-            box-shadow: 0 0 15px rgba(88, 101, 242, 0.5);
-            animation: pulse-glow 2s infinite;
-        }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 10px rgba(88, 101, 242, 0.5); }
-            50% { box-shadow: 0 0 25px rgba(88, 101, 242, 0.7); }
-        }
+        .btn-main-discord { background: #5865F2; box-shadow: 0 0 15px rgba(88, 101, 242, 0.5); animation: pulse-glow 2s infinite; }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 10px rgba(88, 101, 242, 0.5); } 50% { box-shadow: 0 0 25px rgba(88, 101, 242, 0.7); } }
 
         .btn-discord-mini { margin-left: auto; background: #5865F2; padding: 4px 10px; border-radius: 6px; font-size: 10px; font-weight: 800; color: white; display: flex; align-items: center; gap: 6px; transition: 0.2s; }
+        .btn-discord-mini:hover { background: #4752c4; transform: scale(1.05); }
         
         .badge-dev { background: #f59e0b; color: #000; font-size: 8px; font-weight: 900; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; margin-left: auto; }
-
-        #btn-explorar { transition: all 0.5s ease-in-out; }
+        
+        .social-btn { color: #64748b; font-size: 1.5rem; transition: 0.3s; }
+        .social-btn:hover { transform: scale(1.2); }
+        .yt:hover { color: #ff0000; }
+        .tk:hover { color: #00f2ea; }
+        .ig:hover { color: #e1306c; }
     </style>
 </head>
 <body>
@@ -96,14 +82,16 @@
         <header class="min-h-[85vh] flex flex-col items-center justify-center text-center px-6">
             <img src="./logosv.png" class="w-32 h-32 mb-6 drop-shadow-[0_0_30px_rgba(14,165,233,0.4)]">
             <h2 class="text-5xl md:text-7xl font-black italic uppercase text-white mb-4 tracking-tighter">TARRAGONA <span class="text-sky-500">RP</span></h2>
-            <div class="max-w-2xl glass p-6 rounded-2xl mb-8 border border-white/10">
-                <p class="text-slate-300 text-base">Comunidad líder de roleplay en ERLC España.</p>
+            <div class="max-w-2xl glass p-8 rounded-2xl mb-8 border border-white/10">
+                <p class="text-slate-300 text-base leading-relaxed">
+                    Tarragona RP es una comunidad líder en <b>ERLC: Liberty County</b>. Un entorno diseñado para el realismo máximo basado en España, con sistemas únicos de economía, cuerpos de seguridad del estado y una normativa estricta para garantizar la mejor experiencia de rol.
+                </p>
             </div>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="https://discord.gg/gZbckMjZns" class="btn-main-discord px-10 py-4 rounded-xl font-black text-white text-lg flex items-center gap-3 italic uppercase">
-                    <i class="fab fa-discord"></i> Discord Oficial
+                    <i class="fab fa-discord"></i> Entrar al Servidor
                 </a>
-                <button id="btn-explorar" onclick="showPage('facciones')" class="bg-white/5 border border-white/20 px-10 py-4 rounded-xl font-black text-white text-lg uppercase italic">
+                <button id="btn-explorar" onclick="showPage('facciones')" class="bg-white/5 border border-white/20 px-10 py-4 rounded-xl font-black text-white text-lg transition backdrop-blur-md uppercase italic">
                     Explorar Facciones
                 </button>
             </div>
@@ -115,63 +103,83 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <img src="./safezones.png" class="rounded-2xl border border-white/10 shadow-2xl w-full">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="sz-card"><i class="fas fa-shield-halved text-sky-500 text-3xl mb-4"></i><h3 class="font-black text-white">Comisarías</h3><p class="text-slate-400 text-xs">Protección policial.</p></div>
-                <div class="sz-card"><i class="fas fa-hospital-user text-red-500 text-3xl mb-4"></i><h3 class="font-black text-white">Hospitales</h3><p class="text-slate-400 text-xs">Atención médica.</p></div>
-                <div class="sz-card"><i class="fas fa-fire-extinguisher text-orange-500 text-3xl mb-4"></i><h3 class="font-black text-white">Bomberos</h3><p class="text-slate-400 text-xs">Rescate y fuego.</p></div>
-                <div class="sz-card"><i class="fas fa-gas-pump text-green-500 text-3xl mb-4"></i><h3 class="font-black text-white">Servicios</h3><p class="text-slate-400 text-xs">Repsol y Spawns.</p></div>
+                <div class="sz-card"><i class="fas fa-shield-halved text-sky-500 text-3xl mb-4"></i><h3 class="font-black text-white">Comisarías</h3><p class="text-slate-400 text-xs">G.C, Mossos, CNP y Urbana.</p></div>
+                <div class="sz-card"><i class="fas fa-hospital-user text-red-500 text-3xl mb-4"></i><h3 class="font-black text-white">Hospitales</h3><p class="text-slate-400 text-xs">Can Ruti y base del S.E.M.</p></div>
+                <div class="sz-card"><i class="fas fa-fire-extinguisher text-orange-500 text-3xl mb-4"></i><h3 class="font-black text-white">Bomberos</h3><p class="text-slate-400 text-xs">Parques de emergencia.</p></div>
+                <div class="sz-card"><i class="fas fa-gas-pump text-green-500 text-3xl mb-4"></i><h3 class="font-black text-white">Logística</h3><p class="text-slate-400 text-xs">Repsol y puntos de Spawn.</p></div>
             </div>
         </div>
     </div>
 
     <div id="page-facciones" class="page-content max-w-7xl mx-auto px-6 py-12">
-        <h2 class="text-3xl font-black uppercase italic mb-8 text-white">Organizaciones</h2>
+        <h2 class="text-3xl font-black uppercase italic mb-8 text-white">Facciones Oficiales</h2>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div class="card-lista">
                 <h4 class="font-black uppercase mb-4 text-sky-400 italic">Servicios Públicos</h4>
                 <div class="space-y-2 flex-grow">
-                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-shield-alt"></i></div><span>Guardia Civil</span><a href="https://discord.gg/AJgmCsRddz" class="btn-discord-mini">LINK</a></div>
-                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-building-shield"></i></div><span>C.N.P.</span><a href="https://discord.gg/ezfJvYSTBj" class="btn-discord-mini">LINK</a></div>
-                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-motorcycle"></i></div><span>Mossos D´Squadra</span><a href="https://discord.gg/MjdWpdbqf6" class="btn-discord-mini">LINK</a></div>
-                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-city"></i></div><span>Guardia Urbana</span><a href="https://discord.gg/Dre9cHJvfS" class="btn-discord-mini">LINK</a></div>
-                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-ambulance"></i></div><span>S.E.M / Médicos</span><a href="https://discord.gg/YZfUjrauBf" class="btn-discord-mini">LINK</a></div>
-                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-fire"></i></div><span>Bomberos</span><a href="https://discord.gg/GR4DccMsjx" class="btn-discord-mini">LINK</a></div>
+                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-shield-alt"></i></div><span>Guardia Civil</span><a href="https://discord.gg/AJgmCsRddz" class="btn-discord-mini"><i class="fab fa-discord"></i></a></div>
+                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-building-shield"></i></div><span>C.N.P.</span><a href="https://discord.gg/ezfJvYSTBj" class="btn-discord-mini"><i class="fab fa-discord"></i></a></div>
+                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-motorcycle"></i></div><span>Mossos D´Squadra</span><a href="https://discord.gg/MjdWpdbqf6" class="btn-discord-mini"><i class="fab fa-discord"></i></a></div>
+                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-city"></i></div><span>Guardia Urbana</span><a href="https://discord.gg/Dre9cHJvfS" class="btn-discord-mini"><i class="fab fa-discord"></i></a></div>
+                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-ambulance"></i></div><span>S.E.M / Médicos</span><a href="https://discord.gg/YZfUjrauBf" class="btn-discord-mini"><i class="fab fa-discord"></i></a></div>
+                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-fire"></i></div><span>Bomberos</span><a href="https://discord.gg/GR4DccMsjx" class="btn-discord-mini"><i class="fab fa-discord"></i></a></div>
                     <div class="item-lista"><div class="icon-circle" style="color:#f59e0b;"><i class="fas fa-hard-hat"></i></div><span>Conservación</span><span class="badge-dev">En Desarrollo</span></div>
                 </div>
             </div>
             <div class="card-lista" style="border-top-color: var(--verde-suave);">
                 <h4 class="font-black uppercase mb-4 text-green-500 italic">Legales</h4>
                 <div class="space-y-2 flex-grow">
-                    <div class="item-lista"><div class="icon-circle" style="color:var(--verde-suave);"><i class="fab fa-amazon"></i></div><span>Amazon Logistics</span></div>
-                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-shield-virus text-green-500"></i></div><span>Prosegur</span></div>
+                    <div class="item-lista"><div class="icon-circle" style="color:var(--verde-suave);"><i class="fab fa-amazon"></i></div><span>Amazon Logistics</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-discord-mini"><i class="fab fa-discord"></i></a></div>
+                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-university text-green-500"></i></div><span>BBVA España</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-discord-mini"><i class="fab fa-discord"></i></a></div>
+                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-shield-virus text-green-500"></i></div><span>Prosegur</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-discord-mini"><i class="fab fa-discord"></i></a></div>
                 </div>
-                <a href="https://discord.gg/fmN8kE7uBf" class="mt-4 bg-green-600 py-3 rounded-lg font-black text-white text-xs flex items-center justify-center gap-2 hover:bg-green-700 transition"><i class="fab fa-discord"></i> POSTULARSE</a>
             </div>
             <div class="card-lista" style="border-top-color: #a855f7;">
                 <h4 class="font-black uppercase mb-4 text-purple-500 italic">Ilegales</h4>
                 <div class="flex-grow">
-                    <div class="item-lista"><div class="icon-circle" style="color:#a855f7;"><i class="fas fa-ghost"></i></div><span>Cielo Azul</span></div>
+                    <div class="item-lista"><div class="icon-circle" style="color:#a855f7;"><i class="fas fa-ghost"></i></div><span>Cielo Azul</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-discord-mini"><i class="fab fa-discord"></i></a></div>
                 </div>
-                <a href="https://discord.gg/fmN8kE7uBf" class="mt-auto bg-purple-600 py-3 rounded-lg font-black text-white text-xs italic flex items-center justify-center gap-2 hover:bg-purple-700 transition"><i class="fab fa-discord"></i> POSTULAR MAFIA</a>
             </div>
         </div>
     </div>
 
     <div id="page-normativa" class="page-content max-w-6xl mx-auto px-6 py-12">
-        <h2 class="text-4xl font-black uppercase italic mb-10 text-center text-white">Normativa Oficial</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-[12px]">
-            <div class="glass p-6 rounded-xl border-l-8 border-green-500">
-                <h3 class="font-black mb-4 text-green-400 uppercase italic">Convivencia</h3>
-                <p>Respeto absoluto OOC e IC.</p>
+        <h2 class="text-4xl font-black uppercase italic mb-10 border-l-8 border-red-600 pl-4 text-white">Reglamento General</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 uppercase font-bold text-[11px]">
+            <div class="sz-card border-l-4 border-green-500">
+                <h3 class="text-green-400 mb-2">01. CONVIVENCIA Y TOXICIDAD</h3>
+                <p class="text-slate-300">RESPETO TOTAL OOC. CUALQUIER COMPORTAMIENTO TÓXICO HACIA EL STAFF O USUARIOS RESULTARÁ EN BAN PERMANENTE.</p>
             </div>
-            <div class="glass p-6 rounded-xl border-l-8 border-sky-500">
-                <h3 class="font-black mb-4 text-sky-400 uppercase italic">Conceptos</h3>
-                <p>MG, PG, DM y VDM prohibidos. Valorar vida.</p>
+            <div class="sz-card border-l-4 border-sky-500">
+                <h3 class="text-sky-400 mb-2">02. METAGAMING (MG)</h3>
+                <p class="text-slate-300">PROHIBIDO USAR INFORMACIÓN OOC (DISCORD, STREAMINGS) PARA BENEFICIO DENTRO DEL ROL.</p>
+            </div>
+            <div class="sz-card border-l-4 border-orange-500">
+                <h3 class="text-orange-400 mb-2">03. POWERGAMING (PG)</h3>
+                <p class="text-slate-300">NO PUEDES REALIZAR ACCIONES IMPOSIBLES EN LA VIDA REAL O FORZAR EL ROL A TU FAVOR.</p>
+            </div>
+            <div class="sz-card border-l-4 border-red-500">
+                <h3 class="text-red-400 mb-2">04. DEATHMATCH (DM)</h3>
+                <p class="text-slate-300">PROHIBIDO MATAR O ATACAR A ALGUIEN SIN UNA RAZÓN DE ROL DEBIDAMENTE JUSTIFICADA.</p>
+            </div>
+            <div class="sz-card border-l-4 border-purple-500">
+                <h3 class="text-purple-400 mb-2">05. VALORAR VIDA</h3>
+                <p class="text-slate-300">SI TE APUNTAN CON UN ARMA Y NO TIENES ESCAPE, DEBES RENDIRTE. TU VIDA ES LO MÁS VALIOSO.</p>
+            </div>
+            <div class="sz-card border-l-4 border-yellow-500">
+                <h3 class="text-yellow-400 mb-2">06. VEHICULAR DM (VDM)</h3>
+                <p class="text-slate-300">USAR VEHÍCULOS COMO ARMA PARA ATROPELLAR A OTROS SIN SENTIDO ES MOTIVO DE SANCIÓN GRAVE.</p>
             </div>
         </div>
     </div>
 
-    <footer class="py-12 text-center mt-20">
-        <p class="text-slate-600 text-[10px] font-black uppercase tracking-[0.3em]">© 2026 TARRAGONA RP</p>
+    <footer class="py-12 glass border-t border-white/10 text-center mt-20">
+        <div class="flex justify-center gap-10 mb-6">
+            <a href="#" class="social-btn yt"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-btn tk"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-btn ig"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="text-slate-500 text-[10px] font-black uppercase tracking-[0.4em]">© 2026 TARRAGONA RP - ELITE ROLEPLAY</p>
     </footer>
 
     <script>
@@ -187,22 +195,24 @@
         const btnExplorar = document.getElementById('btn-explorar');
         const paginas = [
             { texto: 'Zonas Seguras', id: 'safezones' },
-            { texto: 'Explorar Facciones', id: 'facciones' },
-            { texto: 'Ver Normativa', id: 'normativa' },
-            { texto: 'Volver al Inicio', id: 'inicio' }
+            { texto: 'Ver Facciones', id: 'facciones' },
+            { texto: 'Reglas del Servidor', id: 'normativa' },
+            { texto: 'Página de Inicio', id: 'inicio' }
         ];
         let indice = 0;
 
         setInterval(() => {
             indice = (indice + 1) % paginas.length;
-            btnExplorar.style.opacity = '0';
-            btnExplorar.style.transform = 'translateY(5px)';
-            setTimeout(() => {
-                btnExplorar.innerText = paginas[indice].texto;
-                btnExplorar.onclick = () => showPage(paginas[indice].id);
-                btnExplorar.style.opacity = '1';
-                btnExplorar.style.transform = 'translateY(0)';
-            }, 500);
+            if(btnExplorar) {
+                btnExplorar.style.opacity = '0';
+                btnExplorar.style.transform = 'translateY(5px)';
+                setTimeout(() => {
+                    btnExplorar.innerText = paginas[indice].texto;
+                    btnExplorar.onclick = () => showPage(paginas[indice].id);
+                    btnExplorar.style.opacity = '1';
+                    btnExplorar.style.transform = 'translateY(0)';
+                }, 500);
+            }
         }, 3500);
     </script>
 </body>
