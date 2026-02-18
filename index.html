@@ -14,17 +14,16 @@
             --verde-neon: #10b981; 
             --rojo-neon: #ff0040;
             --prosegur-yellow: #facc15;
+            --purple-neon: #a855f7;
         }
 
         body { 
             background-color: var(--azul-fondo); 
-            /* FONDO NEON INTENSO */
             background-image: 
-                radial-gradient(circle at 50% 10%, rgba(14, 165, 233, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 10% 90%, rgba(255, 0, 64, 0.05) 0%, transparent 30%),
-                linear-gradient(rgba(14, 165, 233, 0.1) 1.5px, transparent 1.5px),
-                linear-gradient(90deg, rgba(14, 165, 233, 0.1) 1.5px, transparent 1.5px);
-            background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+                radial-gradient(circle at 50% 10%, rgba(14, 165, 233, 0.1) 0%, transparent 40%),
+                linear-gradient(rgba(14, 165, 233, 0.05) 1.5px, transparent 1.5px),
+                linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1.5px, transparent 1.5px);
+            background-size: 100% 100%, 60px 60px, 60px 60px;
             color: #f1f5f9; 
             font-family: 'Inter', sans-serif; 
             scroll-behavior: smooth; 
@@ -33,70 +32,46 @@
         .glass { 
             background: rgba(15, 23, 42, 0.8); 
             backdrop-filter: blur(15px); 
-            border: 1px solid rgba(14, 165, 233, 0.3); 
-            box-shadow: 0 0 20px rgba(14, 165, 233, 0.1);
+            border: 1px solid rgba(14, 165, 233, 0.2); 
         }
 
         .page-content { display: none; animation: fadeIn 0.5s ease-out; min-height: 70vh; }
         .page-active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; filter: blur(5px); } to { opacity: 1; filter: blur(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
-        /* TEXTO NEON VIBRANTE */
-        .neon-text { 
-            color: #fff;
-            text-shadow: 0 0 7px rgba(14, 165, 233, 0.8), 0 0 20px rgba(14, 165, 233, 0.5);
-            letter-spacing: 2px;
-        }
-        .neon-text-red { 
-            color: #fff;
-            text-shadow: 0 0 7px rgba(255, 0, 64, 0.8), 0 0 20px rgba(255, 0, 64, 0.5);
-        }
+        .neon-text { text-shadow: 0 0 10px rgba(14, 165, 233, 0.5); }
 
-        .nav-link { cursor: pointer; transition: 0.3s; font-weight: 800; font-size: 12px; }
-        .nav-link.active { color: var(--cian-neon); text-shadow: 0 0 10px var(--cian-neon); }
+        .nav-link { cursor: pointer; transition: 0.3s; font-weight: 800; font-size: 12px; border-bottom: 2px solid transparent; }
+        .nav-link.active { color: var(--cian-neon); border-bottom-color: var(--cian-neon); text-shadow: 0 0 8px var(--cian-neon); }
         
-        .card-lista { background: var(--azul-card); border-radius: 1rem; padding: 1.25rem; border: 1px solid rgba(14, 165, 233, 0.2); border-top: 4px solid var(--cian-neon); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        /* GLOW SUTIL EN BORDES */
+        .card-glow-blue { border: 1px solid rgba(14, 165, 233, 0.3); box-shadow: 0 0 10px rgba(14, 165, 233, 0.1); }
+        .card-glow-green { border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 0 10px rgba(16, 185, 129, 0.1); }
+        .card-glow-purple { border: 1px solid rgba(168, 85, 247, 0.3); box-shadow: 0 0 10px rgba(168, 85, 247, 0.1); }
+        .card-glow-red { border: 1px solid rgba(255, 0, 64, 0.3); box-shadow: 0 0 10px rgba(255, 0, 64, 0.1); }
+
+        .card-lista { background: var(--azul-card); border-radius: 1rem; padding: 1.5rem; height: 100%; display: flex; flex-direction: column; }
         .item-lista { display: flex; align-items: center; gap: 0.75rem; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         
-        /* CARDS ZONAS SEGURAS NEON */
-        .sz-card { 
-            background: rgba(15, 23, 42, 0.9); 
-            border: 2px solid rgba(14, 165, 233, 0.2); 
-            padding: 1.5rem; 
-            border-radius: 1.25rem; 
-            transition: 0.3s;
-        }
-        .sz-card:hover { 
-            border-color: var(--cian-neon); 
-            box-shadow: 0 0 20px rgba(14, 165, 233, 0.4); 
-            transform: translateY(-5px);
-        }
+        .icon-circle { width: 30px; height: 30px; background: rgba(255, 255, 255, 0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
 
-        .btn-main-discord { 
-            background: #5865F2; 
-            box-shadow: 0 0 25px rgba(88, 101, 242, 0.6); 
-            animation: pulse-glow 2s infinite; 
-        }
-        @keyframes pulse-glow { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(88, 101, 242, 0.8); } }
-
-        .btn-join { margin-left: auto; background: #5865F2; padding: 6px 14px; border-radius: 6px; font-size: 9px; font-weight: 900; color: white; display: flex; align-items: center; gap: 6px; box-shadow: 0 0 10px rgba(88, 101, 242, 0.4); }
+        .btn-join { margin-left: auto; background: #5865F2; padding: 6px 12px; border-radius: 6px; font-size: 9px; font-weight: 900; color: white; display: flex; align-items: center; gap: 6px; transition: 0.3s; }
+        .btn-join:hover { filter: brightness(1.2); box-shadow: 0 0 12px rgba(88, 101, 242, 0.4); }
         
-        /* SOCIAL NEON GLOW */
-        .social-btn { font-size: 1.8rem; transition: 0.4s; }
-        .yt { color: #ff0000; filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5)); }
-        .tk { color: #00f2ea; filter: drop-shadow(0 0 5px rgba(0, 242, 234, 0.5)); }
-        .ig { color: #e1306c; filter: drop-shadow(0 0 5px rgba(225, 48, 108, 0.5)); }
-        .social-btn:hover { transform: scale(1.3); filter: drop-shadow(0 0 15px currentColor); }
+        .social-btn { font-size: 1.8rem; transition: 0.4s; color: #64748b; }
+        .yt:hover { color: #ff0000; filter: drop-shadow(0 0 8px #ff0000); }
+        .tk:hover { color: #00f2ea; filter: drop-shadow(0 0 8px #00f2ea); }
+        .ig:hover { color: #e1306c; filter: drop-shadow(0 0 8px #e1306c); }
 
-        .badge-dev { background: #f59e0b; color: #000; font-size: 8px; font-weight: 900; padding: 2px 6px; border-radius: 4px; box-shadow: 0 0 10px rgba(245, 158, 11, 0.5); }
+        .badge-dev { background: #f59e0b; color: #000; font-size: 8px; font-weight: 900; padding: 2px 6px; border-radius: 4px; margin-left: auto; }
     </style>
 </head>
 <body>
 
-    <nav class="sticky top-0 z-50 glass border-b border-sky-500/30 px-6 py-4">
+    <nav class="sticky top-0 z-50 glass border-b border-sky-500/20 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('inicio')">
-                <img src="./logosv.png" alt="Logo" class="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(14,165,233,0.8)]">
+                <img src="./logosv.png" alt="Logo" class="w-10 h-10 object-contain">
                 <h1 class="text-lg font-black italic uppercase text-white tracking-tighter">TARRAGONA <span class="text-sky-400">RP</span></h1>
             </div>
             <div class="hidden lg:flex gap-8 uppercase tracking-widest text-slate-400">
@@ -105,7 +80,7 @@
                 <span class="nav-link" id="link-facciones" onclick="showPage('facciones')">Facciones</span>
                 <span class="nav-link" id="link-normativa" onclick="showPage('normativa')">Normativa</span>
             </div>
-            <a href="https://discord.gg/gZbckMjZns" class="bg-[#5865F2] px-5 py-2 rounded-lg font-bold text-white text-xs flex items-center gap-2 hover:bg-[#4752c4] transition shadow-[0_0_15px_rgba(88,101,242,0.5)]">
+            <a href="https://discord.gg/gZbckMjZns" class="bg-[#5865F2] px-5 py-2 rounded-lg font-bold text-white text-xs flex items-center gap-2 hover:bg-[#4752c4] transition shadow-[0_0_15px_rgba(88,101,242,0.3)]">
                 <i class="fab fa-discord"></i> DISCORD
             </a>
         </div>
@@ -113,7 +88,7 @@
 
     <div id="page-inicio" class="page-content page-active">
         <header class="min-h-[85vh] flex flex-col items-center justify-center text-center px-6">
-            <img src="./logosv.png" class="w-40 h-40 mb-8 drop-shadow-[0_0_40px_rgba(14,165,233,0.6)]">
+            <img src="./logosv.png" class="w-40 h-40 mb-8 drop-shadow-[0_0_30px_rgba(14,165,233,0.4)]">
             <h2 class="text-6xl md:text-8xl font-black italic uppercase text-white mb-6 tracking-tighter neon-text">TARRAGONA <span class="text-sky-500">RP</span></h2>
             <div class="max-w-3xl glass p-10 rounded-3xl mb-10 border-sky-500/30">
                 <p class="text-slate-200 text-lg leading-relaxed font-medium">
@@ -121,10 +96,10 @@
                 </p>
             </div>
             <div class="flex flex-wrap justify-center gap-6">
-                <a href="https://discord.gg/gZbckMjZns" class="btn-main-discord px-12 py-5 rounded-2xl font-black text-white text-xl flex items-center gap-3 italic uppercase">
+                <a href="https://discord.gg/gZbckMjZns" class="bg-[#5865F2] px-12 py-5 rounded-2xl font-black text-white text-xl flex items-center gap-3 italic uppercase shadow-[0_0_20px_rgba(88,101,242,0.4)] hover:scale-105 transition">
                     <i class="fab fa-discord"></i> Entrar al Servidor
                 </a>
-                <button id="btn-explorar" onclick="showPage('facciones')" class="bg-white/5 border-2 border-sky-500/30 px-12 py-5 rounded-2xl font-black text-white text-xl transition backdrop-blur-md uppercase italic hover:bg-sky-500/20 hover:border-sky-400">
+                <button onclick="showPage('facciones')" class="bg-white/5 border-2 border-sky-500/30 px-12 py-5 rounded-2xl font-black text-white text-xl transition backdrop-blur-md uppercase italic hover:bg-sky-500/20">
                     Explorar Facciones
                 </button>
             </div>
@@ -134,15 +109,10 @@
     <div id="page-safezones" class="page-content max-w-6xl mx-auto px-6 py-16">
         <h2 class="text-5xl font-black uppercase italic mb-12 border-l-8 border-sky-500 pl-6 text-white neon-text">Zonas Seguras</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="relative group">
-                <div class="absolute -inset-2 bg-sky-500/30 rounded-3xl blur-xl opacity-50 group-hover:opacity-100 transition duration-500"></div>
-                <img src="./safezones.png" class="relative rounded-3xl border-2 border-sky-500/50 shadow-2xl w-full">
-            </div>
+            <img src="./safezones.png" class="rounded-3xl border-2 border-sky-500/30 shadow-2xl w-full">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="sz-card"><i class="fas fa-shield-halved text-sky-400 text-4xl mb-4 filter drop-shadow-[0_0_10px_rgba(14,165,233,0.8)]"></i><h3 class="font-black text-white text-xl italic uppercase">Comisarías</h3><p class="text-slate-400 text-sm">Protección total por G.C, Mossos y CNP.</p></div>
-                <div class="sz-card"><i class="fas fa-hospital-user text-red-500 text-4xl mb-4 filter drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]"></i><h3 class="font-black text-white text-xl italic uppercase">Hospitales</h3><p class="text-slate-400 text-sm">Zonas de curación y base S.E.M.</p></div>
-                <div class="sz-card"><i class="fas fa-fire-extinguisher text-orange-500 text-4xl mb-4 filter drop-shadow-[0_0_10px_rgba(249,115,22,0.8)]"></i><h3 class="font-black text-white text-xl italic uppercase">Bomberos</h3><p class="text-slate-400 text-sm">Parque central de emergencias.</p></div>
-                <div class="sz-card"><i class="fas fa-gas-pump text-green-400 text-4xl mb-4 filter drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]"></i><h3 class="font-black text-white text-xl italic uppercase">Logística</h3><p class="text-slate-400 text-sm">Gasolineras y puntos de inicio.</p></div>
+                <div class="card-lista card-glow-blue"><i class="fas fa-shield-halved text-sky-400 text-4xl mb-4"></i><h3 class="font-black text-white text-xl italic uppercase">Comisarías</h3><p class="text-slate-400 text-sm">G.C, Mossos y CNP.</p></div>
+                <div class="card-lista card-glow-blue"><i class="fas fa-hospital-user text-red-500 text-4xl mb-4"></i><h3 class="font-black text-white text-xl italic uppercase">Hospitales</h3><p class="text-slate-400 text-sm">Zonas médicas S.E.M.</p></div>
             </div>
         </div>
     </div>
@@ -150,76 +120,75 @@
     <div id="page-facciones" class="page-content max-w-7xl mx-auto px-6 py-16">
         <h2 class="text-4xl font-black uppercase italic mb-10 text-white neon-text">Facciones Oficiales</h2>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div class="card-lista">
-                <h4 class="font-black uppercase mb-6 text-sky-400 italic text-xl">Públicas</h4>
+            <div class="card-lista card-glow-blue">
+                <h4 class="font-black uppercase mb-6 text-sky-400 italic text-xl border-b border-sky-500/30 pb-2">Servicios Públicos</h4>
                 <div class="space-y-3 flex-grow uppercase font-bold text-[11px]">
-                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-shield-alt"></i></div><span>Guardia Civil</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> POSTULA</a></div>
-                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-building-shield"></i></div><span>C.N.P.</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> POSTULA</a></div>
-                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-motorcycle"></i></div><span>Mossos D´Squadra</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> POSTULA</a></div>
-                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-ambulance"></i></div><span>S.E.M / Médicos</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> POSTULA</a></div>
-                    <div class="item-lista"><div class="icon-circle" style="color:#f59e0b;"><i class="fas fa-hard-hat"></i></div><span>Conservación</span><span class="badge-dev">Próximamente</span></div>
+                    <div class="item-lista"><div class="icon-circle text-sky-400"><i class="fas fa-shield-alt"></i></div><span>Guardia Civil</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> POSTULA</a></div>
+                    <div class="item-lista"><div class="icon-circle text-sky-400"><i class="fas fa-building-shield"></i></div><span>C.N.P.</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> POSTULA</a></div>
+                    <div class="item-lista"><div class="icon-circle text-sky-400"><i class="fas fa-motorcycle"></i></div><span>Mossos D´Squadra</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> POSTULA</a></div>
+                    <div class="item-lista"><div class="icon-circle text-sky-400"><i class="fas fa-ambulance"></i></div><span>S.E.M / Médicos</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> POSTULA</a></div>
                 </div>
             </div>
-            <div class="card-lista" style="border-top-color: var(--verde-neon);">
-                <h4 class="font-black uppercase mb-6 text-green-400 italic text-xl">Legales</h4>
+            <div class="card-lista card-glow-green">
+                <h4 class="font-black uppercase mb-6 text-green-400 italic text-xl border-b border-green-500/30 pb-2">Facciones Legales</h4>
                 <div class="space-y-3 flex-grow uppercase font-bold text-[11px]">
-                    <div class="item-lista"><div class="icon-circle" style="color:var(--verde-neon);"><i class="fab fa-amazon"></i></div><span>Amazon Logistics</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> ÚNETE</a></div>
-                    <div class="item-lista"><div class="icon-circle"><i class="fas fa-university text-green-500"></i></div><span>BBVA España</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> ÚNETE</a></div>
-                    <div class="item-lista"><div class="icon-circle" style="color:var(--prosegur-yellow);"><i class="fas fa-shield-virus"></i></div><span style="color:var(--prosegur-yellow);">Prosegur</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> ÚNETE</a></div>
+                    <div class="item-lista"><div class="icon-circle text-green-400"><i class="fab fa-amazon"></i></div><span>Amazon Logistics</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> ÚNETE</a></div>
+                    <div class="item-lista"><div class="icon-circle text-green-400"><i class="fas fa-university"></i></div><span>BBVA España</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> ÚNETE</a></div>
+                    <div class="item-lista"><div class="icon-circle text-yellow-400"><i class="fas fa-shield-virus"></i></div><span>Prosegur</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> ÚNETE</a></div>
                 </div>
             </div>
-            <div class="card-lista" style="border-top-color: #a855f7;">
-                <h4 class="font-black uppercase mb-6 text-purple-400 italic text-xl">Ilegales</h4>
+            <div class="card-lista card-glow-purple">
+                <h4 class="font-black uppercase mb-6 text-purple-400 italic text-xl border-b border-purple-500/30 pb-2">Facciones Ilegales</h4>
                 <div class="flex-grow uppercase font-bold text-[11px]">
-                    <div class="item-lista"><div class="icon-circle" style="color:#a855f7;"><i class="fas fa-ghost"></i></div><span>Mafia Cielo Azul</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> ÚNETE</a></div>
+                    <div class="item-lista"><div class="icon-circle text-purple-400"><i class="fas fa-ghost"></i></div><span>Mafia Cielo Azul</span><a href="#" class="btn-join"><i class="fab fa-discord"></i> ÚNETE</a></div>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="page-normativa" class="page-content max-w-6xl mx-auto px-6 py-16">
-        <h2 class="text-5xl font-black uppercase italic mb-12 border-l-8 border-red-600 pl-6 text-white neon-text-red">Normativa General</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 uppercase font-bold text-[11px]">
-            <div class="sz-card border-l-4 border-green-500">
-                <h3 class="text-green-400 mb-3 text-sm">01. CONVIVENCIA</h3>
+        <h2 class="text-5xl font-black uppercase italic mb-12 border-l-8 border-red-600 pl-6 text-white" style="text-shadow: 0 0 10px rgba(255,0,64,0.4);">Normativa</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 uppercase font-bold text-[10px]">
+            <div class="card-lista card-glow-red">
+                <h3 class="text-red-400 mb-2">01. CONVIVENCIA</h3>
                 <p class="text-slate-300">RESPETO TOTAL OOC. CERO TOLERANCIA AL BULLYING O DISCRIMINACIÓN.</p>
             </div>
-            <div class="sz-card border-l-4 border-sky-500">
-                <h3 class="text-sky-400 mb-3 text-sm">02. METAGAMING (MG)</h3>
+            <div class="card-lista card-glow-red">
+                <h3 class="text-red-400 mb-2">02. METAGAMING (MG)</h3>
                 <p class="text-slate-300">USAR DATOS DE FUERA DEL JUEGO PARA BENEFICIO IC ESTÁ PROHIBIDO.</p>
             </div>
-            <div class="sz-card border-l-4 border-orange-500">
-                <h3 class="text-orange-400 mb-3 text-sm">03. POWERGAMING (PG)</h3>
+            <div class="card-lista card-glow-red">
+                <h3 class="text-red-400 mb-2">03. POWERGAMING (PG)</h3>
                 <p class="text-slate-300">NO PUEDES FORZAR ROL NI HACER ACCIONES FÍSICAMENTE IMPOSIBLES.</p>
             </div>
-            <div class="sz-card border-l-4 border-red-500">
-                <h3 class="text-red-400 mb-3 text-sm">04. DEATHMATCH (DM)</h3>
+            <div class="card-lista card-glow-red">
+                <h3 class="text-red-400 mb-2">04. DEATHMATCH (DM)</h3>
                 <p class="text-slate-300">MATAR SIN MOTIVO DE ROL O SIN INTERACCIÓN PREVIA ES SANCIÓN.</p>
             </div>
-            <div class="sz-card border-l-4 border-purple-500">
-                <h3 class="text-purple-400 mb-3 text-sm">05. VALORAR VIDA</h3>
+            <div class="card-lista card-glow-red">
+                <h3 class="text-red-400 mb-2">05. VALORAR VIDA</h3>
                 <p class="text-slate-300">SIEMPRE DEBES PRIORIZAR TU SUPERVIVENCIA ANTE UNA AMENAZA.</p>
             </div>
-            <div class="sz-card border-l-4 border-yellow-500">
-                <h3 class="text-yellow-400 mb-3 text-sm">06. VEHICULAR DM (VDM)</h3>
+            <div class="card-lista card-glow-red">
+                <h3 class="text-red-400 mb-2">06. VEHICULAR DM (VDM)</h3>
                 <p class="text-slate-300">PROHIBIDO USAR VEHÍCULOS PARA ATROPELLAR O CHOCAR SIN ROL.</p>
             </div>
-            <div class="sz-card border-l-4 border-pink-500">
-                <h3 class="text-pink-400 mb-3 text-sm">07. ROL DE ENTORNO</h3>
+            <div class="card-lista card-glow-red">
+                <h3 class="text-red-400 mb-2">07. ROL DE ENTORNO</h3>
                 <p class="text-slate-300">RECUERDA QUE VIVES EN UNA CIUDAD CON CIUDADANOS (NPCs) E IA.</p>
             </div>
-            <div class="sz-card border-l-4 border-blue-500">
-                <h3 class="text-blue-400 mb-3 text-sm">08. EVADIR ROL</h3>
+            <div class="card-lista card-glow-red">
+                <h3 class="text-red-400 mb-2">08. EVADIR ROL</h3>
                 <p class="text-slate-300">SALIR DEL JUEGO O USAR MENÚS PARA EVITAR UNA ESCENA ES BAN.</p>
             </div>
-            <div class="sz-card border-l-4 border-emerald-500">
-                <h3 class="text-emerald-400 mb-3 text-sm">09. SAFE ZONES</h3>
+            <div class="card-lista card-glow-red">
+                <h3 class="text-red-400 mb-2">09. SAFE ZONES</h3>
                 <p class="text-slate-300">PROHIBIDO INICIAR CONFLICTOS EN LAS ZONAS MARCADAS COMO SEGURAS.</p>
             </div>
         </div>
     </div>
 
-    <footer class="py-16 glass border-t border-sky-500/30 text-center mt-20">
+    <footer class="py-16 glass border-t border-sky-500/20 text-center mt-20">
         <div class="flex justify-center gap-12 mb-8">
             <a href="#" class="social-btn yt"><i class="fab fa-youtube"></i></a>
             <a href="#" class="social-btn tk"><i class="fab fa-tiktok"></i></a>
@@ -237,29 +206,6 @@
             if(link) link.classList.add('active');
             window.scrollTo(0, 0);
         }
-
-        const btnExplorar = document.getElementById('btn-explorar');
-        const paginas = [
-            { texto: 'Zonas Seguras', id: 'safezones' },
-            { texto: 'Ver Facciones', id: 'facciones' },
-            { texto: 'Leer Reglas', id: 'normativa' },
-            { texto: 'Página de Inicio', id: 'inicio' }
-        ];
-        let indice = 0;
-
-        setInterval(() => {
-            indice = (indice + 1) % paginas.length;
-            if(btnExplorar) {
-                btnExplorar.style.opacity = '0';
-                btnExplorar.style.transform = 'translateY(10px)';
-                setTimeout(() => {
-                    btnExplorar.innerText = paginas[indice].texto;
-                    btnExplorar.onclick = () => showPage(paginas[indice].id);
-                    btnExplorar.style.opacity = '1';
-                    btnExplorar.style.transform = 'translateY(0)';
-                }, 500);
-            }
-        }, 3000);
     </script>
 </body>
 </html>
