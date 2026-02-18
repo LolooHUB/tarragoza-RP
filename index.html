@@ -12,11 +12,11 @@
             --azul-card: #0f172a; 
             --cian-neon: #0ea5e9;
             --yellow-prosegur: #facc15;
+            --mossos-glow: #00ccff;
         }
 
         body { 
             background-color: var(--azul-fondo); 
-            /* FONDO GRID RESTAURADO */
             background-image: 
                 linear-gradient(rgba(14, 165, 233, 0.08) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(14, 165, 233, 0.08) 1px, transparent 1px);
@@ -50,7 +50,7 @@
 
         .icon-box { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.03); border-radius: 8px; font-size: 14px; }
         
-        /* VECTOR PROSEGUR AMARILLO ESPECÍFICO */
+        /* VECTOR PROSEGUR AMARILLO */
         .prosegur-vector { 
             width: 22px; 
             height: 22px; 
@@ -92,7 +92,7 @@
     <div id="page-safezones" class="page-content max-w-6xl mx-auto px-6 py-16">
         <h2 class="text-4xl font-black uppercase italic mb-10 border-l-8 border-sky-500 pl-6 text-white">Zonas Seguras</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 text-center">
-            <div class="bubble-card p-6 rounded-2xl"><i class="fas fa-shield-halved text-sky-400 text-3xl mb-4"></i><h3 class="font-black text-white uppercase text-sm">Policía</h3><p class="text-slate-400 text-[10px]">Comisarías Principales</p></div>
+            <div class="bubble-card p-6 rounded-2xl"><i class="fas fa-shield-halved text-sky-400 text-3xl mb-4"></i><h3 class="font-black text-white uppercase text-sm">Policía</h3><p class="text-slate-400 text-[10px]">Tarragona & Springfield</p></div>
             <div class="bubble-card p-6 rounded-2xl"><i class="fas fa-hospital text-red-500 text-3xl mb-4"></i><h3 class="font-black text-white uppercase text-sm">Médicos</h3><p class="text-slate-400 text-[10px]">Hospitales y Bases</p></div>
             <div class="bubble-card p-6 rounded-2xl"><i class="fas fa-gas-pump text-green-500 text-3xl mb-4"></i><h3 class="font-black text-white uppercase text-sm">Repsol</h3><p class="text-slate-400 text-[10px]">Gasolineras</p></div>
             <div class="bubble-card p-6 rounded-2xl"><i class="fas fa-map-pin text-purple-500 text-3xl mb-4"></i><h3 class="font-black text-white uppercase text-sm">Spawn</h3><p class="text-slate-400 text-[10px]">Zonas de inicio</p></div>
@@ -103,25 +103,29 @@
     <div id="page-facciones" class="page-content max-w-7xl mx-auto px-6 py-16">
         <h2 class="text-4xl font-black uppercase italic mb-10 text-white">Facciones Oficiales</h2>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
             <div class="bubble-card p-8 rounded-3xl border-t-4 border-sky-500">
                 <h4 class="text-sky-400 font-black uppercase italic text-xl mb-6">Servicios Públicos</h4>
                 <div class="space-y-4 font-bold text-[10px] uppercase">
-                    <div class="flex items-center gap-4"><div class="icon-box text-[#16a34a]"><i class="fas fa-shield-alt"></i></div><span>Guardia Civil</span><a href="https://discord.gg/AJgmCsRddz" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
-                    <div class="flex items-center gap-4"><div class="icon-box text-[#2563eb]"><i class="fas fa-building-shield"></i></div><span>C.N.P.</span><a href="https://discord.gg/ezfJvYSTBj" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
-                    <div class="flex items-center gap-4"><div class="icon-box text-[#00ccff] shadow-[0_0_10px_#00ccff]"><i class="fas fa-motorcycle"></i></div><span>Mossos D´Squadra</span><a href="https://discord.gg/MjdWpdbqf6" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
-                    <div class="flex items-center gap-4"><div class="icon-box text-[#fbbf24]"><i class="fas fa-hard-hat"></i></div><span>Conservación</span><span class="ml-auto text-[8px] italic">Próximamente</span></div>
-                    <div class="flex items-center gap-4"><div class="icon-box text-red-500"><i class="fas fa-ambulance"></i></div><span>S.E.M / Médicos</span><a href="https://discord.gg/YZfUjrauBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
-                    <div class="flex items-center gap-4"><div class="icon-box text-orange-600"><i class="fas fa-fire-extinguisher"></i></div><span>Bomberos</span><a href="https://discord.gg/GR4DccMsjx" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
+                    <div class="flex items-center gap-4"><div class="icon-box text-[#16a34a]"><i class="fas fa-shield-alt"></i></div><span class="text-[#16a34a]">Guardia Civil</span><a href="https://discord.gg/AJgmCsRddz" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
+                    <div class="flex items-center gap-4"><div class="icon-box text-[#1d4ed8]"><i class="fas fa-building-shield"></i></div><span class="text-[#1d4ed8]">C.N.P.</span><a href="https://discord.gg/ezfJvYSTBj" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
+                    <div class="flex items-center gap-4"><div class="icon-box text-[#00ccff] shadow-[0_0_10px_#00ccff]"><i class="fas fa-motorcycle"></i></div><span class="text-[#00ccff]">Mossos D´Squadra</span><a href="https://discord.gg/MjdWpdbqf6" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
+                    <div class="flex items-center gap-4"><div class="icon-box text-[#60a5fa]"><i class="fas fa-city"></i></div><span class="text-[#60a5fa]">Guardia Urbana</span><a href="https://discord.gg/Dre9cHJvfS" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
+                    <div class="flex items-center gap-4"><div class="icon-box text-[#ef4444]"><i class="fas fa-ambulance"></i></div><span class="text-[#ef4444]">S.E.M / Médicos</span><a href="https://discord.gg/YZfUjrauBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
+                    <div class="flex items-center gap-4"><div class="icon-box text-[#f97316]"><i class="fas fa-fire-extinguisher"></i></div><span class="text-[#f97316]">Bomberos</span><a href="https://discord.gg/GR4DccMsjx" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
+                    <div class="flex items-center gap-4 opacity-70"><div class="icon-box text-[#facc15]"><i class="fas fa-hard-hat"></i></div><span class="text-[#facc15]">Conservación</span><span class="ml-auto text-[8px] italic">Próximamente</span></div>
                 </div>
             </div>
+
             <div class="bubble-card p-8 rounded-3xl border-t-4 border-green-500">
                 <h4 class="text-green-400 font-black uppercase italic text-xl mb-6">Empresas Legales</h4>
                 <div class="space-y-4 font-bold text-[10px] uppercase">
-                    <div class="flex items-center gap-4"><div class="icon-box text-[#ff9900]"><i class="fab fa-amazon"></i></div><span>Amazon Logistics</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
-                    <div class="flex items-center gap-4"><div class="icon-box text-[#004481]"><i class="fas fa-university"></i></div><span>BBVA España</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
+                    <div class="flex items-center gap-4"><div class="icon-box text-[#ff9900]"><i class="fab fa-amazon"></i></div><span class="text-[#ff9900]">Amazon Logistics</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
+                    <div class="flex items-center gap-4"><div class="icon-box text-[#004481]"><i class="fas fa-university"></i></div><span class="text-[#004481]">BBVA España</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
                     <div class="flex items-center gap-4"><div class="icon-box"><img src="./prosegur.png" class="prosegur-vector"></div><span class="text-[#facc15]">Prosegur</span><a href="https://discord.gg/fmN8kE7uBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
                 </div>
             </div>
+
             <div class="bubble-card p-8 rounded-3xl border-t-4 border-purple-500">
                 <h4 class="text-purple-400 font-black uppercase italic text-xl mb-6">Bandas</h4>
                 <div class="flex items-center gap-4 font-bold text-[10px] uppercase">
@@ -140,27 +144,25 @@
     </div>
 
     <div id="page-normativa" class="page-content max-w-7xl mx-auto px-6 py-16">
-        <h2 class="text-5xl font-black uppercase italic mb-16 text-center text-sky-500">Reglamento Completo</h2>
+        <h2 class="text-5xl font-black uppercase italic mb-16 text-center text-sky-500">Reglamento y Comandos</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div class="space-y-6">
-                <h3 class="text-3xl font-black uppercase text-red-500 border-b-2 border-red-500/20 pb-2">Reglas Generales</h3>
+                <h3 class="text-3xl font-black uppercase text-red-500 border-b-2 border-red-500/20 pb-2">Normativa General</h3>
                 <div class="space-y-4 font-bold text-[11px] uppercase">
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">MG: Info de fuera del juego usada dentro.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">PG: Cosas irreales o forzar el rol de otro.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">DM: Matar sin motivo o sin interactuar.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">VV: Valorar Vida. Actúa con miedo real.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">RK: Revenge Kill. No vuelvas a matar tras morir.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">Combat Log: Salir para evitar rol o arresto.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">MG: Información externa usada dentro del juego.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">PG: Acciones irreales o forzar rol de terceros.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">DM: Matar sin motivo o sin interacción previa.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">RK: Revenge Kill. No vuelvas por venganza tras morir.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">VV: Valorar Vida. Actúa siempre con miedo real al peligro.</div>
                 </div>
             </div>
             <div class="space-y-6">
-                <h3 class="text-3xl font-black uppercase text-blue-500 border-b-2 border-blue-500/20 pb-2">Comandos y Empresas</h3>
+                <h3 class="text-3xl font-black uppercase text-blue-500 border-b-2 border-blue-500/20 pb-2">Comandos y Deberes</h3>
                 <div class="space-y-4 font-bold text-[11px] uppercase">
-                    <div class="bubble-card p-5 rounded-xl">/me: Describe tus acciones físicas.</div>
-                    <div class="bubble-card p-5 rounded-xl">/do: Describe estados o el entorno.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">01. Prohibido toxicidad o faltas de respeto.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">02. Uniforme obligatorio en servicio.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">03. Confidencialidad total del servidor.</div>
+                    <div class="bubble-card p-5 rounded-xl">/me: Describe acciones físicas del personaje.</div>
+                    <div class="bubble-card p-5 rounded-xl">/do: Describe estados, entorno o preguntas de rol.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">Uniforme obligatorio durante todo el servicio.</div>
+                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">Prohibida la toxicidad en radio o chat global.</div>
                 </div>
             </div>
         </div>
